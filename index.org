@@ -1,1 +1,3 @@
 #+title: booknote
+* OLED display
+[[file:~/Documents/books/OLED Display Fundamentals and Applications Ed.2 2017(Tsujimura, Takatoshi).pdf][pdf]]
