@@ -1,7 +1,7 @@
-#+title: booknote
-* OLED display
-[[file:~/Documents/books/OLED Display Fundamentals and Applications Ed.2 2017(Tsujimura, Takatoshi).pdf][pdf]]
+#+title: 
+* keyboard
+[[https://configure.zsa.io/voyager/layouts/EY776/lbXNVG/0][voy]]
+[[https://configure.zsa.io/moonlander/layouts/KyP9a/LvDoQR/0][moonlander]]
 * windows terminal
-
 * neovim
-** Ex
+* powershell
