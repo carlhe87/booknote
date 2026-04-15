@@ -1,0 +1,31 @@
+function Copy-CaseFolder {
+    param(
+        [Parameter(Mandatory)]
+        [string]$Keyword
+    )
+
+    $sourceRoot = "D:\CloudDrive\Folder1"
+    $destinationRoot = "C:\Local\Folder2"
+
+    $matches = Get-ChildItem -Path $sourceRoot -Directory -Recurse |
+        Where-Object { $_.Name -like "*$Keyword*" }
+
+    if ($matches.Count -eq 0) {
+        Write-Warning "No match found for '$Keyword'."
+        return
+    }
+
+    if ($matches.Count -gt 1) {
+        Write-Warning "Multiple matches found for '$Keyword':"
+        $matches | Select-Object FullName | Format-Table -AutoSize
+        return
+    }
+
+    Copy-Item -Path $matches[0].FullName `
+              -Destination $destinationRoot `
+              -Recurse `
+              -Force
+
+    Write-Host "Copied folder:"
+    Write-Host $matches[0].FullName
+}
