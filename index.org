@@ -3,43 +3,13 @@
 - [[https://configure.zsa.io/voyager/layouts/EY776/lbXNVG/0][voyager]]
 - [[https://configure.zsa.io/moonlander/layouts/KyP9a/LvDoQR/0][moonlander]]
 * windows terminal
-** copy file
-Copy-Item -Path "C:\temp\file.txt" -Destination "C:\backup\file.txt"
--Force  overwrite
--Recursive copy entire folder
-
-$source = "C:\temp\file.txt"
-$destination = "C:\backup\file.txt"
-Copy-Item -Path $source -Destination $destination -Force
-
-then run with
-.\copy-file.ps1
-
-can pipe commands
-Get-ChildItem "C:\temp\*.txt" | Copy-Item -Destination "C:\backup\"
-
+* powershell
 ** execution policy
 Get-ExecutionPolicy
-
-use .bat as launcher
-@echo off
-powershell -ExecutionPolicy Bypass -File script.ps1
-
-@echo off
-powershell -ExecutionPolicy Bypass -File "%~dp0script.ps1"
-*** change policy at a narrower scope
-not need .bat at all if can set policy, But in a corporate machine, this may be blocked by Group Policy.
 Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
-
-or only for the current session:
 Set-ExecutionPolicy -Scope Process Bypass
 
-*** use universal wrapper
-@echo off
-powershell -ExecutionPolicy Bypass -File "%~1"
-
-run-ps1.bat "C:\scripts\copy-file.ps1"
-*** use in profile rather than in script
+** use in profile rather than in script
 function copy-note {
     param(
         [string]$Source,
@@ -47,57 +17,4 @@ function copy-note {
     )
     Copy-Item -Path $Source -Destination $Destination -Force
 }
-
-
-copy-note "C:\a\file.txt" "C:\b\file.txt"
-*** master bat file to launch different tasks
-one master menu or dispatcher script
-
-Have one .bat file that launches one PowerShell script, and that PowerShell script dispatches tasks.
-
-tools.bat
-
-@echo off
-powershell -ExecutionPolicy Bypass -File "%~dp0tools.ps1" %*
-
-tools.ps1
-
-param(
-    [string]$Task,
-    [string]$Arg1,
-    [string]$Arg2
-)
-
-switch ($Task) {
-    "copy" { Copy-Item -Path $Arg1 -Destination $Arg2 -Force }
-    default { Write-Host "Unknown task" }
-}
-
-tools.bat copy "C:\a\file.txt" "C:\b\file.txt"
-** copy in windows terminal
-function clipout {
-    param($cmd)
-    Invoke-Expression $cmd | Out-String | Set-Clipboard
-}
-*** use alias
-Set-Clipboard alias is =scb=, but i can setup function to chain them into =osc=
-function osc {
-    Out-String | Set-Clipboard
-}
-
-git log | osc
-*** use wrapper function
-function c {
-    $output = & $args
-    $output | Out-String | Set-Clipboard
-    $output
-}
-
-use:
-c git log
-c Get-ChildItem
-
-but this verson breaks if using pipe line, only suitable for short commands
-
-* powershell
 * neovim
