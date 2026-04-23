@@ -1,0 +1,182 @@
+1. Why dopant purity is critical in OLEDs
+1.1 Exciton physics creates extreme sensitivity
+
+In OLEDs, recombination occurs on or near the dopant:
+
+Charge carriers recombine → excitons (singlet/triplet)
+Energy is localized on dopant molecules
+Local energy densities are high (particularly for phosphorescent / TADF systems)
+
+Impurities act as:
+
+Non-radiative quenching centers
+Charge traps
+Chemical reaction seeds
+
+Even ppm–ppb levels can matter.
+
+1.2 Main degradation mechanisms induced by impurities
+(A) Exciton quenching
+
+Impurities introduce mid-gap states:
+
+Exciton energy transfers to impurity → dissipated as heat
+Reduces efficiency and accelerates degradation
+
+Typical pathways:
+
+Dexter transfer to impurity
+Charge-transfer complex formation
+(B) Triplet–impurity interactions (critical)
+
+Triplet excitons (long lifetime ~µs–ms) are particularly dangerous:
+
+More time to interact with impurities
+Can induce:
+bond cleavage
+radical formation
+
+This leads to chemical decomposition cascades.
+
+(C) Charge trapping and imbalance
+
+Impurities often have different HOMO/LUMO levels:
+
+Trap electrons or holes
+Distort recombination zone
+Create local hotspots
+
+→ Accelerates localized degradation (burn-in, dark spots)
+
+(D) Chemical instability and catalytic effects
+
+Trace impurities (especially metals, peroxides, residual catalysts):
+
+Catalyze oxidation or decomposition
+Initiate radical chain reactions
+
+This is often the dominant lifetime killer.
+
+2. Why lifetime is reduced (mechanistic summary)
+
+The degradation is typically autocatalytic:
+
+Impurity triggers initial non-radiative process
+Generates radicals / excited fragments
+These attack:
+dopant
+host
+neighboring molecules
+Decomposition products accumulate
+More quenching centers form
+
+→ Positive feedback loop → rapid lifetime collapse
+
+3. How to increase dopant lifetime
+3.1 Chemical purity (primary lever)
+
+Industrial OLED dopants often require:
+
+≥99.99% (4N) purity
+Sometimes 5N–6N equivalent impurity control
+
+Key techniques:
+
+Gradient sublimation (multiple passes)
+Zone refining (less common but emerging)
+HPLC purification (for small batches)
+Metal scavenging
+3.2 Molecular design
+(A) Increase intrinsic stability
+Rigid molecular structures
+Strong bonds (avoid weak C–N, C–S in excited state hotspots)
+Steric protection of reactive sites
+(B) Reduce exciton-induced degradation
+Lower triplet energy localization
+Distribute excited state (delocalization)
+Avoid high-energy excited states
+(C) Host–dopant engineering
+Good energy alignment
+Avoid charge trapping on dopant
+Optimize dopant concentration
+3.3 Device engineering
+Broaden recombination zone
+Reduce exciton density
+Use graded doping
+Improve charge balance
+3.4 Encapsulation & environment
+Remove oxygen and moisture
+Avoid residual solvents
+Control outgassing from adjacent layers
+4. Fullerene as dopant — does it help?
+
+This part needs careful distinction: what role do you assign to fullerene?
+
+4.1 Properties of Fullerene (e.g. C60)
+6
+
+Key features:
+
+Very high electron affinity
+Excellent electron transport
+Strong triplet quenching ability
+Chemically relatively robust
+4.2 Potential advantages
+(A) Electron transport / n-doping role
+Commonly used in:
+OPV (organic photovoltaics)
+Electron transport layers (ETL)
+
+Can improve:
+
+Charge balance
+Reduce electron accumulation
+(B) Stability in some contexts
+Fullerene cage is chemically stable
+Can act as a sink for electrons
+4.3 Major problem: exciton quenching
+
+This is the critical limitation:
+
+Fullerene is a strong exciton quencher
+Especially efficient for:
+Triplet quenching
+Charge-transfer quenching
+
+If used as a dopant in emissive layer:
+
+→ Severely reduces emission efficiency
+
+4.4 Practical conclusion
+Use case	Fullerene suitability
+Emissive dopant	❌ Poor (quenching dominates)
+Electron transport layer	✔ Good
+Charge balance tuning	✔ Sometimes useful
+Lifetime improvement in EML	⚠ Rare, indirect only
+5. Conceptual takeaway (important for your mental model)
+
+Think of OLED degradation as:
+
+Excited-state chemistry under high energy density
+
+Then:
+
+Dopant = reaction center
+Impurity = reaction catalyst or trap
+Lifetime = how long you suppress unwanted reaction pathways
+
+Purity matters because it removes:
+
+Alternative energy sinks
+Reaction initiation sites
+Catalytic species
+6. If you want to go deeper
+
+Given your background, the next useful layer would be:
+
+Triplet-polaron annihilation (TPA)
+Triplet-triplet annihilation (TTA)
+Excited-state bond dissociation energies (BDE*)
+Kinetic vs thermodynamic stability of dopants
+
+I can map those mechanisms explicitly onto molecular design rules if needed.
