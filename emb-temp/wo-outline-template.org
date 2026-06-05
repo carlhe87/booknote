@@ -1,0 +1,587 @@
+#+TITLE: Patent Template — WO 2020/126972 A1
+#+SUBTITLE: Compound and an organic semiconducting layer, an organic electronic device and a display device comprising the same
+#+OPTIONS: toc:t num:nil
+
+* BIBLIOGRAPHIC DATA
+:PROPERTIES:
+:PUB_NO:        WO 2020/126972 A1
+:INT_APPL_NO:   PCT/EP2019/085243
+:PUB_DATE:      25 June 2020
+:FILING_DATE:   16 December 2019
+:PRIORITY:      18215035.9 (21 December 2018, EP)
+:APPLICANT:     NOVALED GMBH [DE/DE]
+:INVENTOR:      GALÁN GARCIA, Elena
+:IPC:           C07D 401/04 (2006.01)
+:END:
+
+* TITLE
+Compound and an organic semiconducting layer, an organic electronic device and a display device comprising the same
+
+* ABSTRACT
+The present invention relates to a compound of Formula (I), wherein Ar2 has the general Formula (II) as well as to an organic semiconducting layer, an organic electronic device and a display device comprising the same.
+
+* DESCRIPTION
+
+** Field of Invention
+The present invention relates to a compound as well as to an organic semiconducting layer comprising the same.
+
+** Background Art
+
+Organic light-emitting diodes (OLEDs), which are self-emitting devices, have a wide viewing angle, excellent contrast, quick response, high brightness, excellent driving voltage characteristics, and color reproduction.
+
+When a voltage is applied to the anode and the cathode, holes injected from the anode electrode move to the EML, via the HTL, and electrons injected from the cathode electrode move to the EML, via the ETL.
+
+Compounds comprising triazine groups are known in the art and used in organic electronics applications, especially as electron transport materials.
+
+CN 106 946 852 A discloses an organic compound taking triazine and benzimidazole as cores and application thereof to OLEDs.
+
+WO 2018/103749 A1 discloses triazine fused ring derivatives and the application thereof in organic electronic devices.
+
+CN 106 467 522 A discloses organic electroluminescent devices containing triazine compounds and the application thereof.
+
+KR 2014 0094408 A discloses a compound for an organic electronic element, an organic electronic element using the same and an electronic device thereof.
+
+** Problem and Object of the Invention
+
+However, there is still a need to improve the electronic properties of respective compounds for use in organic electronic devices, in particular to provide compounds having a LUMO further away from vacuum level, a higher dipole moment, improved melting point and suitable rate on-set temperature compared to compounds known in the art.
+
+It is therefore an object of the present invention to provide novel organic electronic devices and compounds for use therein overcoming drawbacks of the prior art, in particular to provide novel compounds having improved properties, in particular melting points and/or glass transition temperatures and/or electronic properties and/or rate onset temperature which may be suitable to improve the performance of organic electronic devices, in particular when used in an electron transport layer.
+
+The above object is achieved by a compound of Formula (I)
+
+** Summary of the Invention
+
+*** Compound of Formula (I)
+
+The above object is achieved by a compound of Formula (I) [Formula I, wherein L1, Ar1, Ar2 and R6 are as defined below]
+
+It was surprising found by the inventors that compounds of Formula (I) above have a LUMO further away from vacuum level, a higher dipole moment and improved melting point and rate onset temperature compared to compounds known in the art.
+
+Without being bound by theory, when 1 ≤ a+b+c+d+e ≤ 5, provided that if b and d are 1 and a, c and e are 0, R2 and R4 are different from each other, the crystallinity may be reduced.
+
+The term "direct bond" as used herein refers to a single bond connecting the respective moieties connected with the direct bond.
+
+In the definition of the compound of Formula (I) it is referred to two alternatives with respect to the selection of the substituent R1 to R5.
+
+With respect to the compound of Formula (I) it may be provided that if the substituted or unsubstituted C6 to C24 aryl substituents are connected via a direct bond the respective substituents are adjacent to each other, i.e. are either bound to the same carbon atom or to two carbon atoms wherein the two carbon atoms are adjacent to each other.
+
+Ar1 may be selected from C6 to C18 aryl, alternatively C6 to C12 aryl, alternatively phenyl.
+
+R6 may be selected from H, C1 to C8 alkyl or C6 to C18 aryl, alternatively from H, C1 to C6 alkyl or C6 to C18 aryl, alternatively is H.
+
+L1 may be a direct bond, phenylene or biphenylene, alternatively may be a direct bond or phenylene, alternatively may be a direct bond or 1,3-phenylene, alternatively a direct bond, alternatively 1,3-phenylene.
+
+In the alternative, where a+b+c+d+e = 2 and a first of R1 to R5 is a substituted methylene group and a second R1 to R5, which is adjacent to the first of R1 to R5, is a substituted or unsubstituted C6 to C24 arylene group, wherein the substituted methylene group and the substituted or unsubstituted C6 to C22 arylene group are connected via a direct bond, Ar2 may be selected from the following groups C1 to C8.
+
+In this way, it is possible to further improve the relevant properties of the compound of Formula (I) regarding LUMO, dipole moment, melting point and rate onset temperature and to further improve the performance of the organic electronic device.
+
+R1 to R5 may independently be selected from substituted or unsubstituted phenyl, biphenyl, fluorenyl, benzofluorenyl, naphthyl, phenanthryl, anthracenyl, pyrenyl, benzofuranyl, benzothiophenyl, dibenzofuranyl, dibenzothiophenyl, pryidyl, quinolinyl, pyrimidinyl, triazinyl, pyrazinyl, phenanthrolinyl, acridinyl, benzoacridinyl, dibenzoacridinyl, ethenyl, fluorene, benzofluorene, dibenzofluorene, 9,9'-spirobi[fluorene], 13H-indeno[1,2-l]phenanthrene, naphthalene, anthracene, phenanthrene, pyrene, perylene, triphenylene, rubrene, chrysene, fluoranthene, spiro[benzo[de]anthracene-7,9'-fluorene], acridine, benzoacridine, dibenzoacridine, quinoline, quinazoline, quinoxaline, benzoquinoline, phenanthroline, benzimidazole, pyrimidine, pyridine, pyrazine, aza-triphenylene, carbazole, dibenzofurane, dibenzothiophene, dibenzoselenophene, aza-dibenzofuran, aza-dibenzothiophene, aza-dibenzoselenophene, di-aza-dibenzothiophene, di-aza-dibenzoselenophene.
+
+The groups R1 to R5 may independently be selected from substituted or unsubstituted phenyl or the following groups D1 to D35.
+
+Alternatively, R1 to R5 may be selected from phenyl, D1, D2, D5 to D8, D12, D18, D19 to D23 and D25 to D33.
+
+Alternatively, R1 to R5 may be selected from phenyl, D1, D2, D5, D18, D19 to D23 and D25 to D33.
+
+Alternatively, R1 to R5 may be selected from phenyl, D1, D2, D5 to D8, D12, D18, D19 and D25 to D33.
+
+Alternatively, R1 to R5 may be selected from phenyl, naphthyl, phenanthryl and fluoranthenyl, alternatively phenyl.
+
+In another embodiment, 1 ≤ a+b+c+d+e ≤ 4 and e is 0, provided that if b and d are 1 and a, c and e are 0, R2 and R4 are different from each other.
+
+In this way, it is possible to further improve the relevant properties of the compound of Formula (I) regarding LUMO, dipole moment, melting point and rate onset temperature and to further improve the performance of the organic electronic device.
+
+The one or more substituent(s), if present, may independently be selected from halogen, CN or E1 to E49.
+
+Alternatively, the one or more substituent(s), if present, may independently be selected from F, CN or E1 to E12, E18 to E20, E28 to E30, E36 and E37.
+
+Compound of Formula (I) may be free of carbazole or indolocarbazole.
+
+Compounds of Formula (I) may be free of unsubstituted alkyl substituents.
+
+In this way, it is possible to further improve the relevant properties of the compound of Formula (I) regarding LUMO, dipole moment, melting point and rate onset temperature and to further improve the performance of the organic electronic device.
+
+The compound of Formula (I) may have one of the following Formulas 1 to 48.
+
+In this way, it is possible to further improve the relevant properties of the compound of Formula (I) regarding LUMO, dipole moment, melting point and rate onset temperature and to further improve the performance of the organic electronic device.
+
+*** Organic Semiconducting Layer
+
+The object is further achieved by an organic semiconducting layer comprising the compound of Formula (I) as defined herein.
+
+The organic semiconducting layer comprising the compound of Formula (I) as defined herein may further comprise a metal, a metal salt or an organic alkali metal complex, alternatively an alkali metal complex, alternatively LiQ or metal borate.
+
+The organic semiconducting layer may be non-emissive.
+
+*** Organic Electronic Device
+
+The object is further achieved by an organic electronic device comprising the organic semiconducting layer as defined herein.
+
+The organic electronic device may further comprise an anode, a cathode and at least one emission layer, wherein the organic semiconducting layer comprising the compound of Formula (I) is arranged between the at least one emission layer and the cathode.
+
+Alternatively, the organic semiconducting layer comprising the compound of Formula (I) may be arranged between the auxiliary electron transport layer and the cathode.
+
+Alternatively, the organic semiconducting layer comprising the compound of Formula (I) may be arranged between a first and a second emission layer.
+
+The organic electronic device may be an organic light emitting device.
+
+*** Display Device / Lighting Device
+
+The object is further achieved by a display device comprising the organic electronic device as defined herein.
+
+Finally, the object is achieved by a lighting device comprising the organic electronic device as defined herein.
+
+** Further Layers
+
+In accordance with the invention, the organic electronic device may comprise, besides the layers already mentioned above, further layers.
+
+*** Substrate
+
+The substrate may be any substrate that is commonly used in manufacturing of, electronic devices, such as organic light-emitting diodes.
+
+*** Anode Electrode
+
+Either a first electrode or a second electrode comprised in the inventive organic electronic device may be an anode electrode.
+
+*** Hole Injection Layer (HIL)
+
+A hole injection layer (HIL) may be formed on the anode electrode by vacuum deposition, spin coating, printing, casting, slot-die coating, Langmuir-Blodgett (LB) deposition, or the like.
+
+When the HIL is formed using spin coating or printing, coating conditions may vary according to the compound that is used to form the HIL, and the desired structure and thermal properties of the HIL.
+
+The HIL may be formed of any compound that is commonly used to form a HIL.
+
+The HIL may comprise or consist of p-type dopant and the p-type dopant may be selected from tetrafluoro-tetracyanoquinonedimethane (F4TCNQ), 2,2'-(perfluoronaphthalen-2,6-diylidene) dimalononitrile or 2,2',2"-(cyclopropane-1,2,3-triylidene)tris(2-(p-cyanotetrafluorophenyl)acetonitrile) but not limited hereto.
+
+The thickness of the HIL may be in the range from about 1 nm to about 100 nm, and for example, from about 1 nm to about 25 nm.
+
+*** Hole Transport Layer (HTL)
+
+A hole transport layer (HTL) may be formed on the HIL by vacuum deposition, spin coating, slot-die coating, printing, casting, Langmuir-Blodgett (LB) deposition, or the like.
+
+The HTL may be formed of any compound that is commonly used to form a HTL.
+
+The thickness of the HTL may be in the range of about 5 nm to about 250 nm, preferably, about 10 nm to about 200 nm, further about 20 nm to about 190 nm, further about 40 nm to about 180 nm, further about 60 nm to about 170 nm, further about 80 nm to about 160 nm, further about 100 nm to about 160 nm, further about 120 nm to about 140 nm.
+
+When the thickness of the HTL is within this range, the HTL may have excellent hole transporting characteristics, without a substantial penalty in driving voltage.
+
+*** Electron Blocking Layer (EBL)
+
+The function of an electron blocking layer (EBL) is to prevent electrons from being transferred from an emission layer to the hole transport layer and thereby confine electrons to the emission layer.
+
+If the electron blocking layer has a high triplet level, it may also be described as triplet control layer.
+
+*** Triplet Control Layer
+
+The function of the triplet control layer is to reduce quenching of triplets if a phosphorescent green or blue emission layer is used.
+
+*** Emission Layer (EML)
+
+The EML may be formed on the HTL by vacuum deposition, spin coating, slot-die coating, printing, casting, LB deposition, or the like.
+
+It may be provided that the emission layer does not comprise the compound of Formula (I).
+
+The emission layer (EML) may be formed of a combination of a host and an emitter dopant.
+
+The emitter dopant may be a phosphorescent or fluorescent emitter.
+
+Examples of red emitter dopants are PtOEP, Ir(piq)3, and Btp2Ir(acac), but are not limited thereto.
+
+Examples of phosphorescent green emitter dopants are Ir(ppy)3 (ppy = phenylpyridine), Ir(ppy)2(acac), Ir(mpyp)3.
+
+Examples of phosphorescent blue emitter dopants are F2Irpic, (F2ppy)2Ir(tmd) and Ir(dfppz)3 and ter-fluorene.
+
+The amount of the emitter dopant may be in the range from about 0.01 to about 50 parts by weight, based on 100 parts by weight of the host.
+
+*** Hole Blocking Layer (HBL)
+
+A hole blocking layer (HBL) may be formed on the EML, by using vacuum deposition, spin coating, slot-die coating, printing, casting, LB deposition, or the like, in order to prevent the diffusion of holes into the ETL.
+
+The HBL may also be named auxiliary ETL or a-ETL.
+
+When the HBL is formed using vacuum deposition or spin coating, the conditions for deposition and coating may be similar to those for the formation of the HIL.
+
+The HBL may have a thickness in the range from about 5 nm to about 100 nm, for example, from about 10 nm to about 30 nm.
+
+*** Electron Transport Layer (ETL)
+
+The OLED according to the present invention may comprise an electron transport layer (ETL).
+
+According to various embodiments the OLED may comprise an electron transport layer or an electron transport layer stack comprising at least a first electron transport layer and at least a second electron transport layer.
+
+By suitably adjusting energy levels of particular layers of the ETL, the injection and transport of the electrons may be controlled, and the holes may be efficiently blocked.
+
+The electron transport layer of the organic electronic device may comprise the compound represented by general Formula (I) as defined above as the organic electron transport matrix (ETM) material.
+
+Further, the electron transport layer may comprise one or more n-type dopants.
+
+*** Electron Injection Layer (EIL)
+
+An optional EIL, which may facilitates injection of electrons from the cathode, may be formed on the ETL, preferably directly on the electron transport layer.
+
+The thickness of the EIL may be in the range from about 0.1 nm to about 10 nm, for example, in the range from about 0.5 nm to about 9 nm.
+
+*** Cathode Electrode
+
+The cathode electrode is formed on the EIL if present.
+
+The thickness of the cathode electrode may be in the range from about 5 nm to about 1000 nm, for example, in the range from about 10 nm to about 100 nm.
+
+It is to be understood that the cathode electrode is not part of an electron injection layer or the electron transport layer.
+
+*** Charge Generation Layer / Hole Generating Layer
+
+The charge generation layer (CGL) may comprise a p-type and an n-type layer.
+
+Typically, the charge generation layer is a pn junction joining an n-type charge generation layer (electron generating layer) and a hole generating layer.
+
+Charge generating layers are used in tandem devices, for example, in tandem OLEDs comprising, between two electrodes, two or more emission layers.
+
+Suitable matrix materials for the hole generating layer may be materials conventionally used as hole injection and/or hole transport matrix materials.
+
+The n-type charge generating layer may be the layer comprising the compound of Formula (I).
+
+The hole generating layer is arranged in direct contact to the n-type charge generation layer.
+
+*** Organic Light-Emitting Diode (OLED)
+
+The organic electronic device according to the invention may be an organic light-emitting device.
+
+According to one aspect of the present invention, there is provided an organic light-emitting diode (OLED) comprising: a substrate; an anode electrode formed on the substrate; a hole injection layer, a hole transport layer, an emission layer, an organic semiconducting layer comprising a compound of Formula (I) and a cathode electrode.
+
+According to another aspect of the present invention, there is provided an OLED comprising: a substrate; an anode electrode formed on the substrate; a hole injection layer, a hole transport layer, an electron blocking layer, an emission layer, a hole blocking layer, an organic semiconducting layer comprising a compound of Formula (I) and a cathode electrode.
+
+According to another aspect of the present invention, there is provided an OLED comprising: a substrate; an anode electrode formed on the substrate; a hole injection layer, a hole transport layer, an electron blocking layer, an emission layer, a hole blocking layer, an organic semiconducting layer comprising a compound of Formula (I), an electron injection layer, and a cathode electrode.
+
+According to various embodiments of the present invention, there may be provided OLEDs layers arranged between the above mentioned layers, on the substrate or on the top electrode.
+
+According to one aspect, the OLED can comprise a layer structure of a substrate that is adjacent arranged to an anode electrode, the anode electrode is adjacent arranged to a first hole injection layer, the first hole injection layer is adjacent arranged to a first hole transport layer, the first hole transport layer is adjacent arranged to a first electron blocking layer, the first electron blocking layer is adjacent arranged to a first emission layer, the first emission layer is adjacent arranged to a first electron transport layer, the first electron transport layer is adjacent arranged to an n-type charge generation layer, the n-type charge generation layer is adjacent arranged to a hole generating layer, the hole generating layer is adjacent arranged to a second hole transport layer, the second hole transport layer is adjacent arranged to a second electron blocking layer, the second electron blocking layer is adjacent arranged to a second emission layer, between the second emission layer and the cathode electrode an optional electron transport layer and/or an optional injection layer are arranged.
+
+The organic semiconducting layer according to the invention may be the electron transport layer, first electron transport layer, n-type charge generation layer and/or second electron transport layer.
+
+For example, the OLED according to Fig. 2 may be formed by a process, wherein on a substrate (110), an anode (120), a hole injection layer (130), a hole transport layer (140), an electron blocking layer (145), an emission layer (150), a hole blocking layer (155), an electron transport layer (160), an electron injection layer (180) and the cathode electrode (190) are subsequently formed in that order.
+
+** Organic Electronic Device (Method and Embodiments)
+
+An organic electronic device according to the invention comprises an organic semiconducting layer comprising a compound according to Formula (I).
+
+An organic electronic device according to one embodiment may include a substrate, an anode layer, an organic semiconducting layer comprising a compound of Formula (I) and a cathode layer.
+
+An organic electronic device according to one embodiment comprises at least one organic semiconducting layer comprising at least one compound of Formula (I), at least one anode layer, at least one cathode layer and at least one emission layer, wherein the organic semiconducting layer is preferably arranged between the emission layer and the cathode layer.
+
+An organic light-emitting diode (OLED) according to the invention may include an anode, a hole transport layer (HTL), an emission layer (EML), an electron transport layer (ETL) comprising at least one compound of Formula (I), and a cathode, which are sequentially stacked on a substrate.
+
+An organic electronic device according to one embodiment can be a light emitting device, thin film transistor, a battery, a display device or a photovoltaic cell, and preferably a light emitting device.
+
+According to another aspect of the present invention, there is provided a method of manufacturing an organic electronic device, the method using: at least one deposition source, preferably two deposition sources and more preferred at least three deposition sources.
+
+The methods for deposition that can be suitable comprise: deposition via vacuum thermal evaporation; deposition via solution processing, preferably the processing is selected from spin-coating, printing, casting; and/or slot-die coating.
+
+According to various embodiments of the present invention, there is provided a method using: a first deposition source to release the compound of Formula (I) according to the invention, and a second deposition source to release the metal, a metal salt or an alkali or alkaline earth metal complex.
+
+According to various embodiments of the present invention, the method may further include forming on the anode electrode, an emission layer and at least one layer selected from the group consisting of forming a hole injection layer, forming a hole transport layer, or forming a hole blocking layer, between the anode electrode and the first electron transport layer.
+
+According to various embodiments of the present invention, the method may further include the steps for forming an organic light-emitting diode (OLED), wherein on a substrate a first anode electrode is formed.
+
+According to various embodiments of the present invention, the method may further comprise forming an electron injection layer on the organic semiconducting layer.
+
+According to various embodiments, the OLED may have the following layer structure, wherein the layers having the following order: anode, hole injection layer, first hole transport layer, second hole transport layer, emission layer, optional hole blocking layer, organic semiconducting layer comprising a compound of Formula (I) according to the invention, optional electron injection layer, and cathode.
+
+According to another aspect of the invention, it is provided an electronic device comprising at least one organic light emitting device according to any embodiment described throughout this application, preferably, the electronic device comprises the organic light emitting diode in one of embodiments described throughout this application.
+
+In one embodiment, the organic electronic device according to the invention comprising an organic semiconducting layer comprising a compound according to Formula (I) may further comprise a layer comprising a radialene compound and/or a quinodimethane compound.
+
+In one embodiment, the radialene compound and/or the quinodimethane compound may be substituted with one or more halogen atoms and/or with one or more electron withdrawing groups.
+
+** Details and Definitions of the Invention
+
+In the present specification, when a definition is not otherwise provided, an "alkyl group" may refer to an aliphatic hydrocarbon group.
+
+The subscribed number n in Cn relates to the total number of carbon atoms in the respective alkyl, arylene, heteroarylene or aryl group.
+
+The term "aryl" or "arylene" as used herein shall encompass phenyl (C6-aryl), fused aromatics, such as naphthalene, anthracene, phenanthracene, tetracene etc.
+
+The term "alkenyl" as used herein refers to a group -CR1 = CR2R3 comprising a carbon-carbon double bond.
+
+The term "perhalogenated" as used herein refers to a hydrocarbyl group wherein all of the hydrogen atoms of the hydrocarbyl group are replaced by halogen (F, Cl, Br, I) atoms.
+
+The term "alkoxy" as used herein refers to a structural fragment of the Formula -OR with R being hydrocarbyl, preferably alkyl or cycloalkyl.
+
+The term "heteroaryl" as used herein refers to aryl groups in which at least one carbon atom is substituted with a heteroatom, preferably selected from N, O, S, B or Si.
+
+The subscripted number n in Cn-heteroaryl merely refers to the number of carbon atoms excluding the number of heteroatoms.
+
+The term "heteroaryl" may refer to aromatic heterocycles with at least one heteroatom, and all the elements of the hydrocarbon heteroaromatic moiety may have p-orbitals which form conjugation.
+
+The term "heteroaryl" as used herewith shall encompass pyridine, quinoline, benzoquinoline, quinazoline, benzoquinazoline, pyrimidine, pyrazine, triazine, benzimidazole, benzothiazole, benzo[4,5]thieno[3,2-d]pyrimidine, carbazole, xanthene, phenoxazine, benzoacridine, dibenzoacridine and the like.
+
+In the present specification, the single bond refers to a direct bond.
+
+The term "fluorinated" as used herein refers to a hydrocarbon group in which at least one of the hydrogen atoms comprised in the hydrocarbon group is substituted by a fluorine atom.
+
+In terms of the invention, a group is "substituted with" another group if one of the hydrogen atoms comprised in this group is replaced by another group, wherein the other group is the substituent.
+
+In terms of the invention, the expression "between" with respect to one layer being between two other layers does not exclude the presence of further layers which may be arranged between the one layer and one of the two other layers.
+
+With respect to the inventive organic semiconducting layer as well as with respect to the inventive compound, the compounds mentioned in the experimental part are most preferred.
+
+The inventive organic electronic device may be an organic electroluminescent device (OLED) an organic photovoltaic device (OPV), a lighting device, or an organic field-effect transistor (OFET).
+
+According to another aspect, the organic electroluminescent device according to the present invention may comprise more than one emission layer, preferably two or three emission layers.
+
+The organic electroluminescent device (OLED) may be a bottom- or top-emission device.
+
+Another aspect is directed to a device comprising at least one organic electroluminescent device (OLED).
+
+A device comprising organic light-emitting diodes is for example a display or a lighting panel.
+
+In the present invention, the following defined terms, these definitions shall be applied, unless a different definition is given in the claims or elsewhere in this specification.
+
+In the context of the present specification the term "different" or "differs" in connection with the matrix material means that the matrix material differs in their structural Formula.
+
+The terms "OLED" and "organic light-emitting diode" are simultaneously used and have the same meaning.
+
+As used herein, "weight percent", "wt.-%", "percent by weight", "% by weight", and variations thereof refer to a composition, component, substance or agent as the weight of that component, substance or agent of the respective electron transport layer divided by the total weight of the respective electron transport layer thereof and multiplied by 100.
+
+As used herein, "volume percent", "vol.-%", "percent by volume", "% by volume", and variations thereof refer to a composition, component, substance or agent as the volume of that component, substance or agent of the respective electron transport layer divided by the total volume of the respective electron transport layer thereof and multiplied by 100.
+
+All numeric values are herein assumed to be modified by the term "about", whether or not explicitly indicated.
+
+It should be noted that, as used in this specification and the appended claims, the singular forms "a", "an", and "the" include plural referents unless the content clearly dictates otherwise.
+
+The term "free of", "does not contain", "does not comprise" does not exclude impurities.
+
+In the context of the present specification the term "essentially non-emissive" or "non-emissive" means that the contribution of the compound or layer to the visible emission spectrum from the device is less than 10 %, preferably less than 5 % relative to the visible emission spectrum.
+
+Preferably, the organic semiconducting layer comprising the compound of Formula (I) is essentially non-emissive or non-emitting.
+
+The operating voltage, also named U, is measured in Volt (V) at 10 milliAmpere per square centimeter (mA/cm2).
+
+The candela per Ampere efficiency, also named cd/A efficiency is measured in candela per ampere at 10 milliAmpere per square centimeter (mA/cm2).
+
+The external quantum efficiency, also named EQE, is measured in percent (%).
+
+The color space is described by coordinates CIE-x and CIE-y (International Commission on Illumination 1931).
+
+The highest occupied molecular orbital, also named HOMO, and lowest unoccupied molecular orbital, also named LUMO, are measured in electron volt (eV).
+
+The term "OLED", "organic light emitting diode", "organic light emitting device", "organic optoelectronic device" and "organic light-emitting diode" are simultaneously used and have the same meaning.
+
+The term "life-span" and "lifetime" are simultaneously used and have the same meaning.
+
+The anode electrode and cathode electrode may be described as anode electrode / cathode electrode or anode electrode / cathode electrode or anode electrode layer / cathode electrode layer.
+
+Room temperature, also named ambient temperature, is 23°C.
+
+** Brief Description of the Drawings
+
+These and/or other aspects and advantages of the present invention will become apparent and more readily appreciated from the following description of the exemplary embodiments, taken in conjunction with the accompanying drawings, of which:
+
+FIG. 1 is a schematic sectional view of an organic light-emitting diode (OLED), according to an exemplary embodiment of the present invention;
+
+FIG. 2 is a schematic sectional view of an OLED, according to an exemplary embodiment of the present invention.
+
+FIG. 3 is a schematic sectional view of a tandem OLED comprising a charge generation layer, according to an exemplary embodiment of the present invention.
+
+** Detailed Description
+
+Reference will now be made in detail to the exemplary embodiments of the present invention, examples of which are illustrated in the accompanying drawings, wherein like reference numerals refer to the like elements throughout.
+
+Herein, when a first element is referred to as being formed or disposed "on" or "onto" a second element, the first element can be disposed directly on the second element, or one or more other elements may be disposed there between.
+
+FIG. 1 is a schematic sectional view of an organic light-emitting diode (OLED) 100, according to an exemplary embodiment of the present invention.
+
+Instead of a single electron transport layer 160, optionally an electron transport layer stack (ETL) can be used.
+
+Fig. 2 is a schematic sectional view of an OLED 100, according to another exemplary embodiment of the present invention.
+
+Referring to Fig. 2, the OLED 100 includes a substrate 110, an anode 120, a hole injection layer (HIL) 130, a hole transport layer (HTL) 140, an electron blocking layer (EBL) 145, an emission layer (EML) 150, a hole blocking layer (HBL) 155, an electron transport layer (ETL) 160, an electron injection layer (EIL) 180 and a cathode electrode 190.
+
+Preferably, the organic semiconducting layer comprising a compound of Formula (I) may be an ETL.
+
+Fig. 3 is a schematic sectional view of a tandem OLED 200, according to another exemplary embodiment of the present invention.
+
+Referring to Fig. 3, the OLED 200 includes a substrate 110, an anode 120, a first hole injection layer (HIL) 130, a first hole transport layer (HTL) 140, a first electron blocking layer (EBL) 145, a first emission layer (EML) 150, a first hole blocking layer (HBL) 155, a first electron transport layer (ETL) 160, an n-type charge generation layer (n-type CGL) 185, a hole generating layer (p-type charge generation layer; p-type GCL) 135, a second hole transport layer (HTL) 141, a second electron blocking layer (EBL) 146, a second emission layer (EML) 151, a second hole blocking layer (EBL) 156, a second electron transport layer (ETL) 161, a second electron injection layer (EIL) 181 and a cathode 190.
+
+Preferably, the organic semiconducting layer comprising a compound of Formula (I) may be the first ETL, n-type CGL and/or second ETL.
+
+While not shown in Fig. 1, Fig. 2 and Fig. 3, a sealing layer may further be formed on the cathode electrodes 190, in order to seal the OLEDs 100 and 200.
+
+Hereinafter, one or more exemplary embodiments of the present invention will be described in detail with, reference to the following examples.
+
+** Experimental Data
+
+*** Synthesis
+
+Compounds of Formula (I) may be prepared as shown in Scheme 1 below.
+
+**** Preparation of Specific Compound (Scheme 2)
+
+6-(4-(9,9-diphenyl-9H-fluoren-2-yl)-6-phenyl-1,3,5-triazin-2-yl)quinoline may be prepared as shown in Scheme 2 below.
+
+A flask was flushed with nitrogen and charged with 6-(4,4,5,5-tetramethyl-1,3,2-dioxaborolan-2-yl)quinoline (4.1 g, 11.9 mmol), 2-chloro-4-(9,9-diphenyl-9H-fluoren-2-yl)-6-phenyl-1,3,5-triazine (5.5 g, 10.8 mmol), Pd(PPh3)4 (0.25 g, 0.22 mmol), and K2CO3 (3.0 g, 21.7 mmol).
+
+*** Analytical Methods
+
+**** Melting Point
+
+The melting point (mp) is determined as peak temperatures from the DSC curves of the above TGA-DSC measurement or from separate DSC measurements (Mettler Toledo DSC822e, heating of samples from room temperature to completeness of melting with heating rate 10 K/min under a stream of pure nitrogen).
+
+**** Glass Transition Temperature
+
+The glass transition temperature (Tg) is measured under nitrogen and using a heating rate of 10 K per min in a Mettler Toledo DSC 822e differential scanning calorimeter as described in DIN EN ISO 11357, published in March 2010.
+
+**** Rate Onset Temperature
+
+The rate onset temperature (T_RO) is determined by loading 100 mg compound into a VTE source.
+
+To achieve good control over the evaporation rate of an organic compound, the rate onset temperature may be in the range of 200 to 255 °C.
+
+The rate onset temperature is an indirect measure of the volatility of a compound.
+
+**** Reduction Potential
+
+The reduction potential is determined by cyclic voltammetry with poteniostsic device Metrohm PGSTAT30 and software Metrohm Autolab GPES at room temperature.
+
+**** Dipole Moment
+
+The dipole moment |μ| of a molecule containing N atoms is given by: μ = Σ q_i r_i, |μ| = sqrt(μ_x² + μ_y² + μ_z²)
+
+The dipole moment is determined by a semi-empirical molecular orbital method.
+
+The geometries of the molecular structures are optimized using the hybrid functional B3LYP with the 6-31G* basis set in the gas phase as implemented in the program package TURBOMOLE V6.5 (TURBOMOLE GmbH, Litzenhardtstrasse 19, 76135 Karlsruhe, Germany).
+
+Compound of Formula (I) may have a dipole moment in the range of ≤ 0.7 and ≤ 10 Debye, alternatively ≤ 1 and ≤ 6 Debye.
+
+**** Calculated HOMO and LUMO
+
+The HOMO and LUMO are calculated with the program package TURBOMOLE V6.5.
+
+Compounds of Formula (I) may have a LUMO more negative than -2.0 eV and more positive than -4 eV.
+
+*** Device Fabrication
+
+**** General Procedure for Fabrication of OLEDs
+
+For top emission devices, Example 1 and comparative example 1 in Table 2, a glass substrate was cut to a size of 50 mm x 50 mm x 0.7 mm, ultrasonically cleaned with isopropyl alcohol for 5 minutes and then with pure water for 5 minutes, and cleaned again with UV ozone for 30 minutes.
+
+Then, 92 vol.-% Biphenyl-4-yl(9,9-diphenyl-9H-fluoren-2-yl)-[4-(9-phenyl-9H-carbazol-3-yl)phenyl]-amine (CAS 1242056-42-3) with 8 vol.-% 2,2',2"-(cyclopropane-1,2,3-triylidene)tris(2-(p-cyanotetrafluorophenyl)acetonitrile) was vacuum deposited on the anode, to form a HIL having a thickness of 10 nm.
+
+Then, N,N-bis(4-(dibenzo[b,d]furan-4-yl)phenyl)-[1,1':4',1"-terphenyl]-4-amine (CAS 1198399-61-9) was vacuum deposited on the HTL, to form an electron blocking layer (EBL) having a thickness of 5 nm.
+
+Then, 97 vol.-% Ho9 (Sun Fine Chemicals) as EML host and 3 vol.-% BD200 (Sun Fine Chemicals) as fluorescent blue dopant were deposited on the EBL, to form a blue-emitting EML with a thickness of 20 nm.
+
+Then the auxiliary ETL was formed with a thickness of 5 nm by depositing 2,4-diphenyl-6-(4',5',6'-triphenyl-[1,1':2',1":3",1"'-quinquephenyl]-3"'-yl)-1,3,5-triazine on the emission layer (EML).
+
+Then, the electron transporting layer was formed on the auxiliary electron transport layer according to Example 1 and comparative example 1 with a the thickness of 31 nm.
+
+Then, the electron injection layer was formed on the electron transporting layer by deposing Yb with a thickness of 2 nm.
+
+Ag was evaporated at a rate of 0.01 to 1 Å/s at 10-7 mbar to form a cathode with a thickness of 11 nm.
+
+A cap layer of Biphenyl-4-yl(9,9-diphenyl-9H-fluoren-2-yl)-[4-(9-phenyl-9H-carbazol-3-yl)phenyl]-amine was formed on the cathode with a thickness of 75 nm.
+
+The OLED stack is protected from ambient conditions by encapsulation of the device with a glass slide.
+
+**** General Procedure for Fabrication of EODs
+
+For EOD, Example 2 to Example 4 in Table 3, a glass substrate was cut to a size of 50 mm x 50 mm x 0.7 mm, ultrasonically cleaned with isopropyl alcohol for 5 minutes and then with pure water for 5 minutes, and cleaned again with UV ozone for 30 minutes.
+
+Then, 1 nm LiQ was deposited on the first electrode.
+
+Then an electron transport layer was deposited to form a layer with a thickness of 36 nm.
+
+Then, an electron injection layer was deposited on the electron transport layer.
+
+Then, a layer of AgMg alloy (90:10 vol.-%) was deposited on the electron injection layer to form the second electrode.
+
+The EOD stack is protected from ambient conditions by encapsulation of the device with a glass slide.
+
+*** Performance Measurement
+
+To assess the performance of the inventive examples compared to the prior art, the current efficiency is measured at 20°C.
+
+Lifetime LT of the device is measured at ambient conditions (20°C) and 30 mA/cm2, using a Keithley 2400 sourcemeter, and recorded in hours.
+
+The brightness of the device is measured using a calibrated photo diode.
+
+The light output in external efficiency EQE and power efficiency (lm/W efficiency) are determined at 10 mA/cm2 for top emission devices.
+
+To determine the efficiency EQE in % the light output of the device is measured using a calibrated photodiode.
+
+To determine the power efficiency in lm/W, in a first step the luminance in candela per square meter (cd/m2) is measured with an array spectrometer CAS140 CT from Instrument Systems which has been calibrated by Deutsche Akkreditierungsstelle (DAkkS).
+
+*** Technical Effect of the Invention
+
+In Table 1, calculated HOMO, LUMO and dipole moment are shown of compounds of Formula (I) and of comparative example ETM-1.
+
+As can be seen in Table 1, the calculated LUMO of compounds of Formula (I) is at least 0.1 eV further away from vacuum level than the LUMO of the comparative examples ETM-1 and ETM-2.
+
+Additionally, the dipole moment is higher of compounds of Formula (I) compared to the comparative examples ETM-1 and ETM-2, see Table 1.
+
+Furthermore, compounds of Formula (I) have a high melting point and high glass transition temperature, see Table 1.
+
+The rate onset temperature is in the range suitable for mass production of organic electronic devices.
+
+In Table 2, the performance of an organic light-emitting diode comprising an organic semiconductor layer comprising compound of Formula (I) is shown compared to comparative compound ETM-2.
+
+Without being bound by theory, the improvement in lifetime may be due to the improved charge balance and/or stability of a device comprising compound of Formula (I).
+
+In Table 3, the performance of electron-only devices comprising a compound of formula (1) is shown.
+
+In example 2, the organic semiconductor layer comprises compound 1.
+
+In example 3, the organic semiconductor layer comprises compound 35.
+
+In example 4, the organic semiconductor layer comprises compound 1 and LiQ.
+
+A low operating voltage is beneficial for performance of organic electronic devices, in particular mobile applications.
+
+In summary, compounds of formula (1) enable improved performance of organic electronic devices.
+
+* CLAIMS
+
+** Claim 1 — Compound of Formula (I)
+Compound of Formula (I) [structure defined in description, wherein L1, Ar1, Ar2(Formula II), R1-R5, R6 are as defined]
+
+** Claim 2 — Ar1 selection
+Compound according to claim 1, wherein Ar1 is selected from C6 to C18 aryl.
+
+** Claim 3 — R6 selection
+Compound according to claim 1 or 2, wherein R6 is selected from H, C1 to C8 alkyl, or C6 to C18 aryl.
+
+** Claim 4 — L1 selection
+Compound according to any of the preceding claims, wherein L1 is a direct bond, phenylene or biphenylene.
+
+** Claim 5 — Ar2 groups C1 to C8
+Compound according to any of the preceding claims, wherein Ar2 is selected from the following groups C1 to C8 [structures as defined].
+
+** Claim 6 — R1-R5 named aryl/heteroaryl groups
+Compound according to any of the preceding claims, wherein R1 to R5 are independently selected from substituted or unsubstituted phenyl, biphenyl, fluorenyl, benzofluorenyl, naphthyl, phenanthryl, anthracenyl, pyrenyl [and further named groups as listed in description].
+
+** Claim 7 — R1-R5 groups D1 to D35
+Compound according to any of the preceding claims, wherein the groups R1 to R5 are independently selected from substituted or unsubstituted phenyl or the following groups D1 to D35 [structures as defined].
+
+** Claim 8 — Substituents E1 to E49
+Compound according to any of the preceding claims, wherein the one or more substituent(s), if present, is/are independently selected from halogen, CN or E1 to E49 [structures as defined].
+
+** Claim 9 — Specific Formulas 1 to 48
+Compound according to any of the preceding claims, wherein the compound of Formula (I) has one of the following Formulas 1 to 48 [structures as defined].
+
+** Claim 10 — Organic Semiconducting Layer
+Organic semiconducting layer comprising the compound of Formula (I) according to any of the preceding claims.
+
+** Claim 11 — Organic Semiconducting Layer + metal component
+Organic semiconducting layer according to claim 10 further comprising a metal, a metal salt or an organic alkali metal complex.
+
+** Claim 12 — Organic Electronic Device
+Organic electronic device comprising the organic semiconducting layer according to any of the claims 10 or 11.
+
+** Claim 13 — Organic Electronic Device with emission layer
+Organic electronic device according to claim 12 further comprising an anode, a cathode and an emission layer, wherein the organic semiconducting layer comprising the compound of Formula (I) is arranged between the emission layer and the cathode.
+
+** Claim 14 — OLED
+Organic electronic device according to claim 12 or 13, wherein the organic electronic device is an organic light emitting device.
+
+** Claim 15 — Display Device
+Display device comprising the organic electronic device according to claim 14.

@@ -1,0 +1,233 @@
+#+TITLE: Embodiment Organisation Patterns
+#+SUBTITLE: Analysis of WO 2020/126972 A1 and EP 3670504 A1
+#+OPTIONS: toc:t num:nil
+
+* Overview
+
+Both applications follow a consistent, layered system for organising embodiments in which every sentence opener encodes a legal status (essential, preferred, alternative, negative, or combinatorial).  The system operates at three scales: within a single sentence, across paragraphs, and across subject-matter categories (compound → layer → device → display).
+
+* Anchor Phrases and Their Scope
+
+Every sentence that introduces or qualifies an embodiment opens with a phrase that signals its place in the hierarchy.
+
+** Essential — independent claim scope
+
+The above object is achieved by a compound of Formula (I) [...]
+
+The object is further achieved by an organic semiconducting layer comprising the compound of Formula (I) as defined herein.
+
+The object is further achieved by an organic electronic device comprising the organic semiconducting layer as defined herein.
+
+Finally, the object is achieved by a lighting device comprising the organic electronic device as defined herein.
+
+** Definitional — mandatory element, no optionality
+
+The term "direct bond" as used herein refers to a single bond connecting the respective moieties connected with the direct bond.
+
+In the definition of the compound of Formula (I) it is referred to two alternatives with respect to the selection of the substituent R1 to R5.
+
+** Preferred broad — first optional selection offered
+
+[Feature] may be selected from [large set]
+
+[Feature] may be [property]
+
+[Feature] may further comprise [additive element]
+
+** Preferred narrower — intra-sentence funnel
+
+[Feature] may be selected from [broad set], alternatively [smaller set], alternatively [single value].
+
+** Parallel alternative — sibling embodiment, new paragraph
+
+Alternatively, [Feature] may be selected from [different subset].
+
+** Restricted variant — additional condition on an existing variable
+
+In another embodiment, [condition tighter than the earlier embodiment].
+
+** Conditional structural branch — separate formula alternative
+
+In the alternative, where [structural condition], [Feature] may be selected from [...]
+
+** Negative disclaimer — sub-class exclusion
+
+Compound of Formula (I) may be free of [excluded structural class].
+
+Compounds of Formula (I) may be free of [excluded structural class].
+
+** Effect-link — validates the preceding preferred selection
+
+In this way, it is possible to further improve the relevant properties of the compound of Formula (I) regarding LUMO, dipole moment, melting point and rate onset temperature and to further improve the performance of the organic electronic device.
+
+** Most preferred — specific worked examples
+
+The compound of Formula (I) may have one of the following Formulas 1 to 48.
+
+* Intra-Sentence Narrowing (Funnel Pattern)
+
+A single sentence encodes a stack of dependent claims using repeated "alternatively".  Each step is a proper subset of the previous.  The last entry in the chain is the single most preferred value.
+
+** Example: Ar1
+
+Ar1 may be selected from C6 to C18 aryl, alternatively C6 to C12 aryl, alternatively phenyl.
+
+Mapping:
+- C6 to C18 aryl → broad dependent claim
+- C6 to C12 aryl → narrower dependent claim
+- phenyl → most preferred, closest to working example
+
+** Example: L1 (five levels in one sentence)
+
+L1 may be a direct bond, phenylene or biphenylene, alternatively may be a direct bond or phenylene, alternatively may be a direct bond or 1,3-phenylene, alternatively a direct bond, alternatively 1,3-phenylene.
+
+** Example: metal additive in the semiconducting layer
+
+The organic semiconducting layer comprising the compound of Formula (I) as defined herein may further comprise a metal, a metal salt or an organic alkali metal complex, alternatively an alkali metal complex, alternatively LiQ or metal borate.
+
+* Inter-Paragraph Alternatives (Parallel Siblings)
+
+When "Alternatively," opens a new paragraph it introduces a parallel preferred embodiment — not narrower than the previous paragraph, but a different preferred subset of the same feature.  These siblings are legally independent of each other.
+
+** Example: R1 to R5 (four parallel paragraphs)
+
+The groups R1 to R5 may independently be selected from substituted or unsubstituted phenyl or the following groups D1 to D35.
+
+Alternatively, R1 to R5 may be selected from phenyl, D1, D2, D5 to D8, D12, D18, D19 to D23 and D25 to D33.
+
+Alternatively, R1 to R5 may be selected from phenyl, D1, D2, D5, D18, D19 to D23 and D25 to D33.
+
+Alternatively, R1 to R5 may be selected from phenyl, D1, D2, D5 to D8, D12, D18, D19 and D25 to D33.
+
+Alternatively, R1 to R5 may be selected from phenyl, naphthyl, phenanthryl and fluoranthenyl, alternatively phenyl.
+
+These four paragraphs are siblings.  The drafter deliberately leaves the relationship between them non-hierarchical so that each reads as an independent preferred option combinable with any preferred selection for the other variables.
+
+** Example: position of the semiconducting layer in the device
+
+The organic electronic device may further comprise an anode, a cathode and at least one emission layer, wherein the organic semiconducting layer comprising the compound of Formula (I) is arranged between the at least one emission layer and the cathode.
+
+Alternatively, the organic semiconducting layer comprising the compound of Formula (I) may be arranged between the auxiliary electron transport layer and the cathode.
+
+Alternatively, the organic semiconducting layer comprising the compound of Formula (I) may be arranged between a first and a second emission layer.
+
+* Restricted Variant ("In another embodiment")
+
+"In another embodiment" imposes an additional condition on an already-defined variable.  It is not an alternative — it is a sub-set of the first embodiment and maps to a multi-condition dependent claim.
+
+** Example: tightening the substitution count
+
+Without being bound by theory, when 1 ≤ a+b+c+d+e ≤ 5, provided that if b and d are 1 and a, c and e are 0, R2 and R4 are different from each other, the crystallinity may be reduced.
+
+In another embodiment, 1 ≤ a+b+c+d+e ≤ 4 and e is 0, provided that if b and d are 1 and a, c and e are 0, R2 and R4 are different from each other.
+
+The range is narrowed from ≤ 5 to ≤ 4 and an additional constraint (e = 0) is added.
+
+* Conditional Structural Branch ("In the alternative, where")
+
+"In the alternative, where [structural condition]" introduces a wholly separate structural variant of the core formula — a second independent branch at the same level as the first.
+
+** Example: the spiro/methylene branch of Ar2
+
+In the alternative, where a+b+c+d+e = 2 and a first of R1 to R5 is a substituted methylene group and a second R1 to R5, which is adjacent to the first of R1 to R5, is a substituted or unsubstituted C6 to C24 arylene group, wherein the substituted methylene group and the substituted or unsubstituted C6 to C22 arylene group are connected via a direct bond, Ar2 may be selected from the following groups C1 to C8.
+
+The above definition regarding the groups C1 to C8 is related to the second alternative mentioned before.
+
+* The Effect-Link as a Structural Signal
+
+The boilerplate effect-link sentence appears immediately after any narrowing — a preferred selection, a restriction, or an exclusion.  Its position is the signal, not its content.
+
+** Rule
+
+[Narrowing paragraph]
+In this way, it is possible to further improve the relevant properties of the compound of Formula (I) regarding LUMO, dipole moment, melting point and rate onset temperature and to further improve the performance of the organic electronic device.
+
+** What this means in practice
+
+The presence of the effect-link confirms that the preceding paragraph defines a preferred embodiment with a standalone technical benefit.  It is always the same sentence and is never placed after a definitional or essential paragraph.
+
+* Device-Level Combinations (Layer Stacks)
+
+Device embodiments are enumerated as complete layer stacks.  "According to one/another aspect" introduces each combination.
+
+** Minimum stack (independent-claim level)
+
+According to one aspect of the present invention, there is provided an organic light-emitting diode (OLED) comprising: a substrate; an anode electrode formed on the substrate; a hole injection layer, a hole transport layer, an emission layer, an organic semiconducting layer comprising a compound of Formula (I) and a cathode electrode.
+
+** Extended stack (adds EBL and HBL)
+
+According to another aspect of the present invention, there is provided an OLED comprising: a substrate; an anode electrode formed on the substrate; a hole injection layer, a hole transport layer, an electron blocking layer, an emission layer, a hole blocking layer, an organic semiconducting layer comprising a compound of Formula (I) and a cathode electrode.
+
+** Further extended stack (adds EIL)
+
+According to another aspect of the present invention, there is provided an OLED comprising: a substrate; an anode electrode formed on the substrate; a hole injection layer, a hole transport layer, an electron blocking layer, an emission layer, a hole blocking layer, an organic semiconducting layer comprising a compound of Formula (I), an electron injection layer, and a cathode electrode.
+
+** Combinatorial scope signal
+
+According to various embodiments of the present invention, there may be provided OLEDs layers arranged between the above mentioned layers, on the substrate or on the top electrode.
+
+This sentence signals that the three stacks above are not exhaustive — features from independently-described embodiments may be freely combined.
+
+* Cascade of Subject-Matter via "as defined herein"
+
+The four independent subject-matters are chained by the phrase "as defined herein".  Each level inherits all preferred and alternative embodiments of the level above without repeating them.
+
+** Chain
+
+The above object is achieved by a compound of Formula (I) [full definition here]
+
+The object is further achieved by an organic semiconducting layer comprising the compound of Formula (I) as defined herein.
+
+The object is further achieved by an organic electronic device comprising the organic semiconducting layer as defined herein.
+
+The object is further achieved by a display device comprising the organic electronic device as defined herein.
+
+Finally, the object is achieved by a lighting device comprising the organic electronic device as defined herein.
+
+** What "as defined herein" does
+
+It imports the entire embodiment tree of the referenced subject-matter by reference.  A drafter writing about the organic electronic device does not need to repeat the preferred Ar1 selections — they are already part of "as defined herein".
+
+* Full Hierarchy Summary
+
+** Scope levels from broadest to most specific
+
+Level 1 — Essential (independent claim):
+The above object is achieved by a compound of Formula (I)
+
+Level 2 — Preferred broad (first dependent):
+[Feature] may be selected from [large set]
+
+Level 3 — Preferred narrower (intra-sentence, second or third dependent):
+alternatively [smaller set], alternatively [single value]
+
+Level 4 — Parallel alternative (sibling dependent, new paragraph):
+Alternatively, [Feature] may be selected from [different subset]
+
+Level 5 — Restricted variant (multi-condition dependent):
+In another embodiment, [tighter condition on an existing variable]
+
+Level 6 — Negative disclaimer (scope cut):
+Compound of Formula (I) may be free of [excluded class]
+
+Level 7 — Most preferred (working example):
+The compound of Formula (I) may have one of the following Formulas 1 to 48
+
+** Reference table of sentence openers
+
+| Sentence opener                              | Scope level | Legal function                   |
+|----------------------------------------------+-------------+----------------------------------|
+| The above object is achieved by              | 1           | Essential / independent claim    |
+| The object is further achieved by            | 1           | Essential extension              |
+| [Feature] is [X] (wherein-clause)            | 1           | Mandatory formula element        |
+| [Feature] may be selected from               | 2           | Broad preferred / first dependent|
+| alternatively [set] (same sentence)          | 3           | Narrower preferred               |
+| Alternatively, [Feature] may be (new para)   | 4           | Parallel sibling alternative     |
+| In another embodiment,                       | 5           | Restricted / multi-condition     |
+| In the alternative, where                    | 4-5         | Separate structural branch       |
+| [Feature] may be free of                     | 6           | Negative disclaimer              |
+| In this way, it is possible to further improve | —         | Effect-link (position = signal)  |
+| The compound may have one of Formulas 1 to 48| 7           | Most preferred / example         |
+| According to one/another aspect              | device      | Layer stack combination          |
+| According to various embodiments             | device      | Open combinatorial scope         |
+| as defined herein                            | all         | Cross-reference / cascade        |
