@@ -1,0 +1,37 @@
+Neovim abbreviations
+plain UTF-8 text
+
+;; Greek
+;ga → α
+;gb → β
+;gg → γ
+;gd → δ
+;mu → μ
+;Dl → Δ
+
+;; relations
+;pm → ±
+;ap → ≈
+;ne → ≠
+;le → ≤
+;ge → ≥
+
+;; arrows
+;-> → →
+;<- → ←
+;<-> → ↔
+;eq → ⇌
+
+;; units
+;deg → °
+;dot → ·
+
+;; superscript
+;s0 … ;s9
+;s+ ;s-
+
+;; subscript
+;b0 … ;b9
+;bn → ₙ
+;bm → ₘ
+;bx → ₓ
