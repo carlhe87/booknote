@@ -1,0 +1,10 @@
+# Per-machine overrides (see lua/local.lua.example) - never commit these
+lua/local.lua
+
+# Neovim / lazy.nvim runtime data (plugins, LSP servers, etc. installed by
+# mason/lazy live under stdpath("data") / stdpath("state"), NOT in this repo,
+# so nothing here to ignore for that - this is just OS/editor junk).
+*.swp
+*.swo
+Thumbs.db
+.DS_Store

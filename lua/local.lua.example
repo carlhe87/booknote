@@ -1,0 +1,14 @@
+-- Copy this file to lua/local.lua (gitignored, never committed) for anything
+-- specific to one machine only — e.g. your work computer's corporate proxy,
+-- or a path that only exists on one of your two computers.
+--
+-- It's required (if present) at the very end of init.lua, after everything
+-- else has loaded, so it can override any option/keymap set above.
+
+-- Example: corporate proxy so `git clone` / lazy.nvim plugin installs work
+-- from behind the office firewall.
+-- vim.env.HTTP_PROXY = "http://proxy.example.com:8080"
+-- vim.env.HTTPS_PROXY = "http://proxy.example.com:8080"
+
+-- Example: a machine-specific option override.
+-- vim.opt.guifont = "Cascadia Code:h11"
