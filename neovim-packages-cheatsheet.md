@@ -80,7 +80,8 @@ What my `init.lua` installs (full file and setup steps: `neovim-setup-guide.md`)
 |---|---|
 | vim-surround | `ysiw"` · `cs"'` · `ds"` |
 | orgmode | Org notes, agenda from `~/org/**/*` |
-| mini.pick + mini.extra | `SPC .` files · `SPC s p` grep · `SPC b b` buffers · `SPC h h` help · `SPC h k` keymaps |
+| mini.pick + mini.extra | `SPC f f` files · `SPC f g` grep · `SPC f b` buffers · `SPC f o` recent · `SPC h h` help · `SPC h k` keymaps |
+| telescope.nvim (trial) | Same jobs under `SPC t`: `SPC t f` · `SPC t g` · `SPC t b` · `SPC t o` |
 | mini.files | `SPC e` file explorer |
 | which-key | Popup after `SPC` |
 | neogit (+ plenary) | `SPC g g` git status |

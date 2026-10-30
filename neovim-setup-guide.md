@@ -115,6 +115,7 @@ vim.pack.add({
   'https://github.com/folke/which-key.nvim',
   'https://github.com/nvim-lua/plenary.nvim',   -- required by neogit
   'https://github.com/NeogitOrg/neogit',
+  'https://github.com/nvim-telescope/telescope.nvim',   -- trial vs mini.pick
 })
 
 require('orgmode').setup({
@@ -132,17 +133,26 @@ require('mini.extra').setup()
 
 require('which-key').setup()
 require('neogit').setup()
+require('telescope').setup()
 
 -- Keymaps --------------------------------------------------------------------
 local map = vim.keymap.set
 
-map('n', '<leader>.',  '<cmd>Pick files<cr>',           { desc = 'Find file' })
-map('n', '<leader>sp', '<cmd>Pick grep_live<cr>',       { desc = 'Search text' })
-map('n', '<leader>bb', '<cmd>Pick buffers<cr>',         { desc = 'Switch buffer' })
+-- mini.pick under SPC f, mirrored by Telescope under SPC t below
+map('n', '<leader>ff', '<cmd>Pick files<cr>',           { desc = 'Find file' })
+map('n', '<leader>fg', '<cmd>Pick grep_live<cr>',       { desc = 'Search text' })
+map('n', '<leader>fb', '<cmd>Pick buffers<cr>',         { desc = 'Switch buffer' })
+map('n', '<leader>fo', '<cmd>Pick oldfiles<cr>',        { desc = 'Recent files' })
 map('n', '<leader>hh', '<cmd>Pick help<cr>',            { desc = 'Search help' })
 map('n', '<leader>hk', '<cmd>Pick keymaps<cr>',         { desc = 'Search keymaps' })
 map('n', '<leader>e',  function() MiniFiles.open() end, { desc = 'File explorer' })
 map('n', '<leader>gg', '<cmd>Neogit<cr>',               { desc = 'Neogit' })
+
+-- Telescope trial: same second letter = same job as SPC f
+map('n', '<leader>tf', '<cmd>Telescope find_files<cr>', { desc = 'Telescope files' })
+map('n', '<leader>tg', '<cmd>Telescope live_grep<cr>',  { desc = 'Telescope grep' })
+map('n', '<leader>tb', '<cmd>Telescope buffers<cr>',    { desc = 'Telescope buffers' })
+map('n', '<leader>to', '<cmd>Telescope oldfiles<cr>',   { desc = 'Telescope recent files' })
 ```
 
 The file has three parts, in this order:
@@ -151,9 +161,11 @@ The file has three parts, in this order:
    `shellslash` gives `/` in paths, which orgmode links need on Windows.
 2. **Plugins**: one `vim.pack.add({...})` with every plugin, then all
    `setup()` calls. `vim.pack` doesn't resolve dependencies, so plenary is
-   listed explicitly for neogit.
+   listed explicitly for neogit (Telescope needs it too).
 3. **Keymaps**: every leader mapping, all through `local map`. The `desc` is
-   the text which-key shows.
+   the text which-key shows. The two pickers mirror each other: `SPC f` is
+   mini.pick, `SPC t` is Telescope, and the second letter means the same job
+   (`f` files · `g` grep · `b` buffers · `o` recent files).
 
 | Plugin | What it does |
 |---|---|
@@ -161,9 +173,10 @@ The file has three parts, in this order:
 | orgmode | In an org buffer: Tab fold · S-Tab cycle all · `cit` cycle TODO · `g?` keymaps |
 | mini.pick | Fuzzy finder. In picker: S-Tab = all keys · Tab = preview · C-e = refine (`<C-Space>` doesn't reach Neovim on my Windows) |
 | mini.files | Edit directories like buffers, then save |
-| mini.extra | Extra pickers (keymaps, ...) |
+| mini.extra | Extra pickers (keymaps, recent files, ...) |
 | which-key | Popup after SPC, like Doom |
 | neogit (+ plenary) | Magit-style git UI on `SPC g g` |
+| telescope.nvim | Trial, compared against mini.pick (see step 7) |
 
 Maintaining plugins:
 
@@ -218,8 +231,8 @@ pick.setup({
 
 4. If orgmode says the grammar is missing:
    `:Org install_treesitter_grammar`, then restart and check again.
-5. Test on **copies** of a few notes first: folding, TODO cycling, `SPC .`,
-   `SPC s p`, `SPC e`, `SPC g g`, `SPC` popup.
+5. Test on **copies** of a few notes first: folding, TODO cycling, `SPC f f`,
+   `SPC f g`, `SPC t f`, `SPC e`, `SPC g g`, `SPC` popup.
 6. Only then point the org paths at the real notes folder.
 
 ---
@@ -248,22 +261,23 @@ pick.setup({
 
 ---
 
-## 7. Optional: Telescope (for comparison)
+## 7. Telescope trial (mini.pick vs Telescope)
 
-Needs plenary, which is already installed for neogit:
+Telescope is installed next to mini.pick (already in the `init.lua` above).
+It uses plenary, which is installed anyway for neogit.
 
-```lua
-vim.pack.add({ 'https://github.com/nvim-telescope/telescope.nvim' })
-require('telescope').setup({})
-local tb = require('telescope.builtin')
-vim.keymap.set('n', '<leader>tf', tb.find_files, { desc = 'Telescope files' })
-vim.keymap.set('n', '<leader>tg', tb.live_grep,  { desc = 'Telescope grep' })
-```
+| Job | mini.pick | Telescope |
+|---|---|---|
+| Find files | `SPC f f` | `SPC t f` |
+| Search text (grep) | `SPC f g` | `SPC t g` |
+| Switch buffer | `SPC f b` | `SPC t b` |
+| Recent files | `SPC f o` | `SPC t o` |
 
-- Use a separate `<leader>t` prefix to avoid colliding with mini.pick keys.
-- Skip `telescope-fzf-native` (needs compiling) unless fzf-style
-  any-order search in Telescope is really needed.
-- Decide on one picker, then remove the other with `vim.pack.del()`.
+- Same second letter = same job, so the two are easy to compare.
+- Skip `telescope-fzf-native` (needs compiling) unless Telescope feels slow
+  on big lists or fzf-style search is really needed.
+- After the trial, remove the loser: delete its URL, its `setup()` and its
+  keys from `init.lua`, then `:lua vim.pack.del({ 'name' })`.
 
 ---
 
@@ -272,7 +286,7 @@ vim.keymap.set('n', '<leader>tg', tb.live_grep,  { desc = 'Telescope grep' })
 - [ ] org-roam.nvim (`https://github.com/chipsenkbeil/org-roam.nvim`), added
       after orgmode works; test on **copies** of Doom notes first (each editor
       keeps its own index)
-- [ ] Decide mini.pick vs Telescope
+- [ ] Finish the Telescope trial (step 7) and keep one picker
 
 ## Help commands
 
@@ -280,7 +294,7 @@ vim.keymap.set('n', '<leader>tg', tb.live_grep,  { desc = 'Telescope grep' })
 |---|---|
 | `:h packages` | The `pack/start/opt` system |
 | `:h vim.pack` | Built-in plugin manager |
-| `:h MiniPick` · `:h orgmode` · `:h neogit` | Plugin docs |
+| `:h MiniPick` · `:h telescope.nvim` · `:h orgmode` · `:h neogit` | Plugin docs |
 | `:checkhealth <plugin>` | What a plugin is missing |
 | `SPC h h` / `SPC h k` | Fuzzy-search help / keymaps |
 | `SPC g g` | Neogit status |

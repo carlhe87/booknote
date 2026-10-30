@@ -13,6 +13,7 @@ vim.pack.add({
   'https://github.com/folke/which-key.nvim',
   'https://github.com/nvim-lua/plenary.nvim',   -- required by neogit
   'https://github.com/NeogitOrg/neogit',
+  'https://github.com/nvim-telescope/telescope.nvim',   -- trial vs mini.pick
 })
 
 require('orgmode').setup({
@@ -30,14 +31,23 @@ require('mini.extra').setup()
 
 require('which-key').setup()
 require('neogit').setup()
+require('telescope').setup()
 
 -- Keymaps --------------------------------------------------------------------
 local map = vim.keymap.set
 
-map('n', '<leader>.',  '<cmd>Pick files<cr>',           { desc = 'Find file' })
-map('n', '<leader>sp', '<cmd>Pick grep_live<cr>',       { desc = 'Search text' })
-map('n', '<leader>bb', '<cmd>Pick buffers<cr>',         { desc = 'Switch buffer' })
+-- mini.pick under SPC f, mirrored by Telescope under SPC t below
+map('n', '<leader>ff', '<cmd>Pick files<cr>',           { desc = 'Find file' })
+map('n', '<leader>fg', '<cmd>Pick grep_live<cr>',       { desc = 'Search text' })
+map('n', '<leader>fb', '<cmd>Pick buffers<cr>',         { desc = 'Switch buffer' })
+map('n', '<leader>fo', '<cmd>Pick oldfiles<cr>',        { desc = 'Recent files' })
 map('n', '<leader>hh', '<cmd>Pick help<cr>',            { desc = 'Search help' })
 map('n', '<leader>hk', '<cmd>Pick keymaps<cr>',         { desc = 'Search keymaps' })
 map('n', '<leader>e',  function() MiniFiles.open() end, { desc = 'File explorer' })
 map('n', '<leader>gg', '<cmd>Neogit<cr>',               { desc = 'Neogit' })
+
+-- Telescope trial: same second letter = same job as SPC f
+map('n', '<leader>tf', '<cmd>Telescope find_files<cr>', { desc = 'Telescope files' })
+map('n', '<leader>tg', '<cmd>Telescope live_grep<cr>',  { desc = 'Telescope grep' })
+map('n', '<leader>tb', '<cmd>Telescope buffers<cr>',    { desc = 'Telescope buffers' })
+map('n', '<leader>to', '<cmd>Telescope oldfiles<cr>',   { desc = 'Telescope recent files' })
