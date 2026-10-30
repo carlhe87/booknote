@@ -96,44 +96,91 @@ After the next restart, `:e $MYVIMRC` opens this file directly.)
 
 ## 4. The full `init.lua`
 
-Adjust the two org paths. Add sections **one at a time**, restarting and
-checking after each (step 5).
+This is the same file as `init.lua` in this folder. Adjust the two org paths.
+Add sections **one at a time**, restarting and checking after each (step 5).
 
 ```lua
--- =====================================================================
--- Basics (must come before plugins and keymaps)
--- =====================================================================
-vim.g.mapleader = ' '          -- SPC as leader, like Doom
-vim.opt.shellslash = true      -- '/' in paths; orgmode links need this on Windows
+-- Options --------------------------------------------------------------------
+vim.g.mapleader = ' '   -- SPC as leader, like Doom (must come before keymaps)
+vim.opt.shellslash = true
+vim.cmd.colorscheme('default')
 
--- =====================================================================
--- Plugins
---   Update:  :lua vim.pack.update()   (review buffer before applying)
---   Remove:  delete the line below AND :lua vim.pack.del({ 'name' })
---   Help:    :h vim.pack
--- =====================================================================
+-- Plugins --------------------------------------------------------------------
 vim.pack.add({
+  'https://github.com/tpope/vim-surround',
   'https://github.com/nvim-orgmode/orgmode',
-  'https://github.com/nvim-mini/mini.pick',
-  'https://github.com/nvim-mini/mini.files',
-  'https://github.com/nvim-mini/mini.extra',
+  'https://github.com/echasnovski/mini.pick',
+  'https://github.com/echasnovski/mini.files',
+  'https://github.com/echasnovski/mini.extra',
   'https://github.com/folke/which-key.nvim',
+  'https://github.com/nvim-lua/plenary.nvim',   -- required by neogit
+  'https://github.com/NeogitOrg/neogit',
 })
 
--- =====================================================================
--- Orgmode: outline, folding, TODOs
---   In an org buffer: Tab fold · S-Tab cycle all · cit cycle TODO · g? keymaps
--- =====================================================================
 require('orgmode').setup({
   org_agenda_files = '~/org/**/*',
   org_default_notes_file = '~/org/refile.org',
 })
 
--- =====================================================================
--- mini.pick: fuzzy finder
---   Space-separated words match in ANY order (custom match below).
---   In picker: S-Tab = all keys · Tab = preview · C-e = refine
--- =====================================================================
+require('mini.files').setup()
+require('mini.pick').setup({
+  mappings = {
+    refine = '<C-e>',   -- instead of <C-Space>; <C-e> isn't used by mini.pick
+  },
+})
+require('mini.extra').setup()
+
+require('which-key').setup()
+require('neogit').setup()
+
+-- Keymaps --------------------------------------------------------------------
+local map = vim.keymap.set
+
+map('n', '<leader>.',  '<cmd>Pick files<cr>',           { desc = 'Find file' })
+map('n', '<leader>sp', '<cmd>Pick grep_live<cr>',       { desc = 'Search text' })
+map('n', '<leader>bb', '<cmd>Pick buffers<cr>',         { desc = 'Switch buffer' })
+map('n', '<leader>hh', '<cmd>Pick help<cr>',            { desc = 'Search help' })
+map('n', '<leader>hk', '<cmd>Pick keymaps<cr>',         { desc = 'Search keymaps' })
+map('n', '<leader>e',  function() MiniFiles.open() end, { desc = 'File explorer' })
+map('n', '<leader>gg', '<cmd>Neogit<cr>',               { desc = 'Neogit' })
+```
+
+The file has three parts, in this order:
+
+1. **Options**: the leader must be set before any `<leader>` keymap.
+   `shellslash` gives `/` in paths, which orgmode links need on Windows.
+2. **Plugins**: one `vim.pack.add({...})` with every plugin, then all
+   `setup()` calls. `vim.pack` doesn't resolve dependencies, so plenary is
+   listed explicitly for neogit.
+3. **Keymaps**: every leader mapping, all through `local map`. The `desc` is
+   the text which-key shows.
+
+| Plugin | What it does |
+|---|---|
+| vim-surround | `ysiw"` surround word · `cs"'` change · `ds"` delete |
+| orgmode | In an org buffer: Tab fold · S-Tab cycle all · `cit` cycle TODO · `g?` keymaps |
+| mini.pick | Fuzzy finder. In picker: S-Tab = all keys · Tab = preview · C-e = refine (`<C-Space>` doesn't reach Neovim on my Windows) |
+| mini.files | Edit directories like buffers, then save |
+| mini.extra | Extra pickers (keymaps, ...) |
+| which-key | Popup after SPC, like Doom |
+| neogit (+ plenary) | Magit-style git UI on `SPC g g` |
+
+Maintaining plugins:
+
+- Update: `:lua vim.pack.update()` (review the buffer before applying)
+- Remove: delete the URL from `vim.pack.add` **and** `:lua vim.pack.del({ 'name' })`
+- Versions are pinned in `nvim-pack-lock.json` next to `init.lua`
+- Help: `:h vim.pack`
+
+Pickers search the **current directory**: `:cd ~/org` first.
+
+### Optional: match words in any order
+
+By default `mini.pick` matches the query left to right. To let
+space-separated words match in **any** order, replace the
+`require('mini.pick').setup(...)` call with:
+
+```lua
 local pick = require('mini.pick')
 
 local match_any_order = function(stritems, inds, query)
@@ -150,27 +197,10 @@ local match_any_order = function(stritems, inds, query)
 end
 
 pick.setup({
-  mappings = { refine = '<C-e>' },   -- <C-Space> doesn't reach Neovim on my Windows
+  mappings = { refine = '<C-e>' },
   source   = { match = match_any_order },
 })
-
-require('mini.files').setup()   -- edit directories like buffers, then save
-require('mini.extra').setup()   -- extra pickers (keymaps, ...)
-require('which-key').setup()    -- popup after SPC, like Doom
-
--- =====================================================================
--- Keymaps (desc = text shown in which-key)
--- =====================================================================
-local map = vim.keymap.set
-map('n', '<leader>.',  '<cmd>Pick files<cr>',     { desc = 'Find file' })
-map('n', '<leader>sp', '<cmd>Pick grep_live<cr>', { desc = 'Search text' })
-map('n', '<leader>bb', '<cmd>Pick buffers<cr>',   { desc = 'Switch buffer' })
-map('n', '<leader>hh', '<cmd>Pick help<cr>',      { desc = 'Search help' })
-map('n', '<leader>hk', '<cmd>Pick keymaps<cr>',   { desc = 'Search keymaps' })
-map('n', '<leader>e',  function() MiniFiles.open() end, { desc = 'File explorer' })
 ```
-
-Pickers search the **current directory**: `:cd ~/org` first.
 
 ---
 
@@ -189,7 +219,7 @@ Pickers search the **current directory**: `:cd ~/org` first.
 4. If orgmode says the grammar is missing:
    `:Org install_treesitter_grammar`, then restart and check again.
 5. Test on **copies** of a few notes first: folding, TODO cycling, `SPC .`,
-   `SPC s p`, `SPC` popup.
+   `SPC s p`, `SPC e`, `SPC g g`, `SPC` popup.
 6. Only then point the org paths at the real notes folder.
 
 ---
@@ -220,13 +250,10 @@ Pickers search the **current directory**: `:cd ~/org` first.
 
 ## 7. Optional: Telescope (for comparison)
 
-Needs plenary as a dependency (`vim.pack` doesn't resolve dependencies):
+Needs plenary, which is already installed for neogit:
 
 ```lua
-vim.pack.add({
-  'https://github.com/nvim-lua/plenary.nvim',
-  'https://github.com/nvim-telescope/telescope.nvim',
-})
+vim.pack.add({ 'https://github.com/nvim-telescope/telescope.nvim' })
 require('telescope').setup({})
 local tb = require('telescope.builtin')
 vim.keymap.set('n', '<leader>tf', tb.find_files, { desc = 'Telescope files' })
@@ -253,6 +280,7 @@ vim.keymap.set('n', '<leader>tg', tb.live_grep,  { desc = 'Telescope grep' })
 |---|---|
 | `:h packages` | The `pack/start/opt` system |
 | `:h vim.pack` | Built-in plugin manager |
-| `:h MiniPick` · `:h orgmode` | Plugin docs |
+| `:h MiniPick` · `:h orgmode` · `:h neogit` | Plugin docs |
 | `:checkhealth <plugin>` | What a plugin is missing |
 | `SPC h h` / `SPC h k` | Fuzzy-search help / keymaps |
+| `SPC g g` | Neogit status |
