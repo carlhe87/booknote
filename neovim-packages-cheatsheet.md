@@ -40,17 +40,27 @@ A plugin manager only automates three jobs:
 
 ## vim.pack (built-in manager, 0.12+)
 
-In `init.lua`:
+In `init.lua`, list every plugin in **one** `vim.pack.add` call, then call
+each plugin's `setup()` after it (pattern from my `init.lua`):
 
 ```lua
-vim.pack.add({ 'https://github.com/tpope/vim-surround' })
+vim.pack.add({
+  'https://github.com/tpope/vim-surround',
+  'https://github.com/nvim-lua/plenary.nvim',   -- required by neogit
+  'https://github.com/NeogitOrg/neogit',
+})
+
+require('neogit').setup()
 ```
 
 - Clones into `site\pack\core\opt\` and runs `packadd` for you
 - Because it's in `opt/`, **`init.lua` is the single source of truth**:
-  remove the line → plugin no longer loads
-- A lockfile appears in the config folder next to `init.lua` (exact versions,
-  for rollback)
+  remove the URL → plugin no longer loads
+- **No dependency resolution:** list dependencies yourself, before the plugin
+  that needs them (plenary before neogit)
+- Plugins without Lua setup (vim-surround) need no `setup()` call
+- Lockfile `nvim-pack-lock.json` appears in the config folder next to
+  `init.lua` (exact versions, for rollback)
 
 | Function | Does |
 |---|---|
@@ -59,7 +69,21 @@ vim.pack.add({ 'https://github.com/tpope/vim-surround' })
 | `vim.pack.del({ 'name' })` | Remove plugin files from disk |
 | `vim.pack.get()` | Info about installed plugins |
 
-Removing the `add` line stops loading, but **files stay on disk** until `vim.pack.del`.
+Removing the URL from `vim.pack.add` stops loading, but **files stay on disk**
+until `vim.pack.del`.
+
+## Current plugins
+
+What my `init.lua` installs (full file and setup steps: `neovim-setup-guide.md`):
+
+| Plugin | Key / use |
+|---|---|
+| vim-surround | `ysiw"` · `cs"'` · `ds"` |
+| orgmode | Org notes, agenda from `~/org/**/*` |
+| mini.pick + mini.extra | `SPC .` files · `SPC s p` grep · `SPC b b` buffers · `SPC h h` help · `SPC h k` keymaps |
+| mini.files | `SPC e` file explorer |
+| which-key | Popup after `SPC` |
+| neogit (+ plenary) | `SPC g g` git status |
 
 ## Safety net
 
@@ -104,6 +128,16 @@ When a plugin "doesn't work", narrow it down layer by layer:
 | `ysiw"` does nothing | `"` never reached Neovim (dead key / missed keystroke). Test with `yss)` |
 | `Copy-Item` printed nothing | That means success; verify with `Get-ChildItem <path>` |
 
+## Keeping this folder in sync
+
+The real config lives in the private repo `carlhe87/nvim-config`
+(`$env:LOCALAPPDATA\nvim`). This folder holds a copy for sharing.
+
+1. Commit + push the config change in `$env:LOCALAPPDATA\nvim`
+2. `.\sync-nvim.ps1` → copies `init.lua` and `nvim-pack-lock.json`, shows the diff
+3. Update `neovim-setup-guide.md` and this cheat sheet
+4. `.\sync-nvim.ps1 -Commit` → commits as `Sync from nvim-config@<hash>` and pushes
+
 ## Getting help
 
 | Command | Does |
@@ -116,5 +150,7 @@ When a plugin "doesn't work", narrow it down layer by layer:
 
 ## Next steps
 
-- [ ] Pick note-taking plugins (markdown, links between notes, search)
-- [ ] Add each with one `vim.pack.add` line in the sandbox, then move to the real config
+- [x] Pick note-taking plugins (orgmode, mini.pick for search)
+- [ ] Links between notes: org-roam.nvim (see setup guide, step 8)
+- [ ] Try each new plugin in the sandbox first, then add its URL to the
+      `vim.pack.add` list in the real config
