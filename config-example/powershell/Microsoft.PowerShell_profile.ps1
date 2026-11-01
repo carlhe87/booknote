@@ -5,14 +5,13 @@
 Set-Alias v nvim
 
 # --- Config locations ------------------------------------------------------
-# ($myvimrc only exists inside Vim, so define it here)
 $NvimConfigDir = Join-Path $env:LOCALAPPDATA 'nvim'
 $NvimConfig    = Join-Path $NvimConfigDir 'init.lua'
 
 # --- Config snapshot -------------------------------------------------------
 # Copy the current PowerShell + Neovim configs into booknote\config-example\
 $BooknoteDir = Join-Path $HOME 'org\public\booknote'
-function sync-config { & (Join-Path $BooknoteDir 'sync-config.ps1') @args }
+function sync-config-to-booknote { & (Join-Path $BooknoteDir 'sync-config.ps1') @args }
 
 # --- Bookmarks -------------------------------------------------------------
 # Jump to a folder or open a file by name. Names/paths live in bookmarks.psd1 (next to this file).
