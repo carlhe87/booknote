@@ -1,0 +1,12 @@
+# Editor backup, autosave and swap files
+*~
+\#*\#
+.#*
+*.swp
+*.swo
+
+# Claude Code machine-local settings
+.claude/settings.local.json
+
+# conda init hook (managed by conda, machine-specific)
+profile.ps1
