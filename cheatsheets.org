@@ -1,0 +1,426 @@
+#+title: Cheat sheets
+#+filetags: :terminal:nvim:emacs:vscode:
+
+Keys for each layer, outside in: Windows Terminal, the shell, then the editors.
+Every section starts with a Survival table.
+
+* Windows Terminal
+** Survival: =Ctrl+Shift+P=  
+
+| Stuck?                          | Key                                    |
+|---------------------------------+----------------------------------------|
+| Find any action                 | =Ctrl+Shift+P= (command palette)       |
+| Stop the running program        | =Ctrl+C= (with no text selected)       |
+| Close this pane / tab           | =Ctrl+Shift+W=                         |
+| Close the whole window          | =Alt+F4=                               |
+| Pane is zoomed, others "gone"   | palette: "Toggle pane zoom" again      |
+| Text too big / small            | =Ctrl+0= resets font size              |
+| Lost in full screen             | =F11= or =Alt+Enter= toggles           |
+| Scrolled away, back to prompt   | =Ctrl+Shift+End=                       |
+| Search the output               | =Ctrl+Shift+F=                         |
+| Settings (UI / JSON)            | =Ctrl+,= / =Ctrl+Shift+,=              |
+
+** DONE Panes
+  CLOSED: [2026-11-01 Sun 23:51]
+| Action                  | Key                                       |
+|-------------------------+-------------------------------------------|
+| Split automatically     | =Alt+Shift+D= (works on any layout)       |
+| Split right / down      | =Alt+Shift+Plus= / =Alt+Shift+Minus=      |
+| Move focus              | =Alt+Arrow=                               |
+| Resize                  | =Alt+Shift+Arrow=                         |
+| Close                   | =Ctrl+Shift+W=                            |
+| Zoom / unzoom           | =Ctrl+Plus= / =Ctrl+Minus=                |
+
+** DONE Tabs and windows
+  CLOSED: [2026-11-01 Sun 23:56]
+| Action                        | Key                                       |
+|-------------------------------+-------------------------------------------|
+| New tab (default profile)     | =Ctrl+Shift+T=                            |
+| Duplicate tab                 | =Ctrl+Shift+D=                            |
+| New tab with profile N        | =Ctrl+Shift+1...4= |
+| Profile menu                  | =Ctrl+Shift+Space=                        |
+| Tab switcher (most recent)    | =Ctrl+Tab= / =Ctrl+Shift+Tab=      |
+| Go to tab N                   | =Ctrl+Alt+1...9=                          |
+| New window                    | =Ctrl+Shift+N=                            |
+| Quake (drop-down) window      | =Win+`=                                   |
+| Rename tab                    | palette: "Rename tab"                     |
+
+** DONE Text, copy and scroll
+  CLOSED: [2026-11-01 Sun 23:56]
+| Action                        | Key                                       |
+|-------------------------------+-------------------------------------------|
+| Copy / paste                  | =Ctrl+C= / =Ctrl+V= (copy-on-select is on) |
+| Select all                    | =Ctrl+Shift+A=                            |
+| Mark mode (keyboard select)   | =Ctrl+Shift+M=, arrows, =Shift+Arrow=, =RET= copies |
+| Scroll line / page            | =Ctrl+Shift+Up/Down= / =Ctrl+Shift+PgUp/PgDn= |
+| Scroll to top / bottom        | =Ctrl+Shift+Home= / =Ctrl+Shift+End=      |
+| Font size                     | ~Ctrl+=~ / =Ctrl+-= / =Ctrl+0= reset      |
+
+* PowerShell
+Windows PowerShell 5.1 with PSReadLine 2.0.0 in its default (Windows) key mode.
+
+** Survival
+//byClaude [2026-11-01 Sun]
+If you only remember one key: =Ctrl+C= stops whatever is running. To see
+every key: =Ctrl+Alt+?= (or =Get-PSReadLineKeyHandler=).
+
+| Stuck?                                  | Key / command                       |
+|-----------------------------------------+-------------------------------------|
+| Stop the running command                | =Ctrl+C=                            |
+| Clear the line I'm typing               | =Esc=                               |
+| Clear the screen                        | =Ctrl+L= or =cls=                   |
+| List all keys                           | =Ctrl+Alt+?=                        |
+| Help for a command, with examples       | =Get-Help Get-ChildItem -Examples=  |
+| Find a command by part of its name      | =Get-Command *item*=                |
+| What is this alias?                     | =Get-Alias ls=                      |
+| Reload my profile after editing it      | =. $PROFILE=                        |
+| Close the shell                         | =exit=                              |
+
+** Editing the line
+//byClaude [2026-11-01 Sun]
+| Action                              | Key                              |
+|-------------------------------------+----------------------------------|
+| Word left / right                   | =Ctrl+Left= / =Ctrl+Right=       |
+| Start / end of line                 | =Home= / =End=                   |
+| Delete word before / after          | =Ctrl+Backspace= / =Ctrl+Delete= |
+| Delete to start / end of line       | =Ctrl+Home= / =Ctrl+End=         |
+| Undo / redo                         | =Ctrl+Z= / =Ctrl+Y=              |
+| Select                              | =Shift+Arrow=, =Ctrl+Shift+Arrow= by word |
+| Select all / cut                    | =Ctrl+A= / =Ctrl+X=              |
+| New line without running            | =Shift+Enter=                    |
+| Jump to matching bracket            | =Ctrl+]=                         |
+
+** Completion
+//byClaude [2026-11-01 Sun]
+| Action                              | Key                              |
+|-------------------------------------+----------------------------------|
+| Complete / cycle forward, backward  | =Tab= / =Shift+Tab=              |
+| Show all completions as a menu      | =Ctrl+Space=                     |
+Works for commands, parameters (type =-= first), paths and my =j= bookmarks.
+
+** History
+//byClaude [2026-11-01 Sun]
+History is saved across sessions, so =Ctrl+R= also finds old commands.
+
+| Action                              | Key / command                    |
+|-------------------------------------+----------------------------------|
+| Previous / next command             | =Up= / =Down=                    |
+| Search history (type part of it)    | =Ctrl+R= (again for older), =Ctrl+S= newer |
+| Commands starting with what I typed | =F8= / =Shift+F8=                |
+| List this session's history         | =h= (=Get-History=)              |
+| Run entry N again                   | =r N= (=Invoke-History=)         |
+
+** Moving around
+//byClaude [2026-11-01 Sun]
+| Action                              | Command                          |
+|-------------------------------------+----------------------------------|
+| Where am I                          | =pwd=                            |
+| Go to a bookmark / list bookmarks   | =j name= / =j=                   |
+| Edit the bookmark list              | =j marks=                        |
+| Back to where I was before =j=      | =popd=                           |
+| Remember folder and go / go back    | =pushd path= / =popd=            |
+| Open this folder in Explorer        | =ii .= (=Invoke-Item=)           |
+| Open a file in nvim                 | =v file= (my alias)              |
+| Edit my profile                     | =j ps=, or =v $PROFILE=          |
+=cd -= (go back) only exists in PowerShell 7, not 5.1. Use =popd= instead.
+
+* Neovim windows
+** Survival
+//byClaude [2026-11-01 Sun]
+If you only remember one key: press =C-w= and wait. which-key (in my config)
+pops up every window command. =SPC h k= searches all keymaps.
+
+| Stuck?                              | Key / command                       |
+|-------------------------------------+-------------------------------------|
+| See all window keys                 | =C-w=, then wait (which-key)        |
+| Back to normal mode                 | =Esc=                               |
+| Out of a terminal window            | =C-\ C-n= (then =i= to go back in)  |
+| Too many splits: keep only this one | =C-w o= (=:only=)                   |
+| Splits squashed / uneven            | ~C-w =~                             |
+| Close this window                   | =C-w q= (=:q=)                      |
+| Save everything and quit            | =:wqa=                              |
+| Quit without saving anything        | =:qa!=                              |
+| Throw away changes in this file     | =:e!=                               |
+| Help on a window key                | =:help CTRL-W_o= (any key after =_=) |
+
+** Splits
+//byClaude [2026-11-01 Sun]
+| Action                        | Key                 | Command              |
+|-------------------------------+---------------------+----------------------|
+| Split below / right           | =C-w s= / =C-w v=   | =:sp= / =:vs=        |
+| Split and open a file         |                     | =:sp file= / =:vs file= |
+| New empty window              | =C-w n=             | =:new= / =:vnew=     |
+| Close / close others          | =C-w q= / =C-w o=   | =:q= / =:only=       |
+
+** Moving between windows
+//byClaude [2026-11-01 Sun]
+| Action                        | Key                       |
+|-------------------------------+---------------------------|
+| Left / down / up / right      | =C-w h/j/k/l=             |
+| Next / previous used          | =C-w w= / =C-w p=         |
+
+** Resizing
+//byClaude [2026-11-01 Sun]
+A count multiplies, e.g. =10 C-w >= is ten columns wider.
+| Action                        | Key                       | Command                 |
+|-------------------------------+---------------------------+-------------------------|
+| Equal sizes                   | ~C-w =~                   |                         |
+| Taller / shorter              | =C-w += / =C-w -=         | =:resize 20=            |
+| Wider / narrower              | =C-w >= / =C-w <=         | =:vertical resize 80=   |
+| Maximize height / width       | =C-w _= / C-w bar         |                         |
+
+** Rearranging
+//byClaude [2026-11-01 Sun]
+| Action                              | Key                       |
+|-------------------------------------+---------------------------|
+| Move window to far left/bottom/top/right | =C-w H/J/K/L=        |
+| Swap with the next window           | =C-w x=                   |
+| Rotate windows                      | =C-w r=                   |
+| Move window to its own tab          | =C-w T=                   |
+
+** Buffers and tabs
+//byClaude [2026-11-01 Sun]
+A buffer is a file in memory, a window is a view of a buffer, a tab is a
+layout of windows. Closing a window doesn't close the file.
+
+| Action                        | Key / command                         |
+|-------------------------------+---------------------------------------|
+| Switch buffer                 | =SPC f b= (picker), =:b name=         |
+| Last file / previous file     | =C-^=                                 |
+| Next / previous buffer        | =:bn= / =:bp=                         |
+| Close buffer (keep layout)    | =:bd=                                 |
+| New tab                       | =:tabnew= (or =:tabnew file=)         |
+| Next / previous / tab N       | =gt= / =gT= / =N gt=                  |
+| Close tab / keep only this    | =:tabclose= / =:tabonly=              |
+
+** Opening into a split from pickers
+//byClaude [2026-11-01 Sun]
+| Picker      | Vertical split | Horizontal split |
+|-------------+----------------+------------------|
+| mini.pick   | =C-v=          | =C-s=            |
+| Telescope   | =C-v=          | =C-x=            |
+
+** Terminal inside nvim
+//byClaude [2026-11-01 Sun]
+| Action                        | Key / command               |
+|-------------------------------+-----------------------------|
+| Terminal in a split           | =:vsplit term://pwsh=       |
+| Leave terminal mode           | =C-\ C-n=                   |
+| Type in the terminal again    | =i=                         |
+For claude, a WT pane is better: see [[file:terminal-workflow.org::*Best practice: nvim and claude side by side in WT panes][nvim and claude side by side]].
+
+* Doom Emacs windows
+** Survival
+//byClaude [2026-11-01 Sun]
+If you only remember one key: =C-g= cancels whatever is going on. For window
+commands, press =SPC w= and wait: which-key lists them all.
+
+| Stuck?                                | Key                                   |
+|---------------------------------------+---------------------------------------|
+| Cancel anything (prompt, command)     | =C-g= (press several times if needed) |
+| Back to normal state, close popups    | =Esc=                                 |
+| Undo the last layout change           | =SPC w u= (winner-undo), =SPC w C-r= redo |
+| See all window keys                   | =SPC w=, then wait                    |
+| Too many windows: keep only this one  | =SPC w C-o= (=delete-other-windows=)  |
+| Windows squashed / uneven             | ~SPC w =~                             |
+| Run any command by name               | =SPC := or =M-x=                      |
+| What does this key do?                | =SPC h k=, then press the key         |
+| Close this window                     | =SPC w q= (=:q=) or =SPC w c=         |
+| Quit Doom / quit without saving       | =SPC q q= / =SPC q Q=                 |
+
+=SPC w= is the same map as evil's =C-w=, so the nvim keys work too: =C-w v=,
+=C-w h= and so on. In insert state =C-w= deletes a word instead.
+
+** Splits
+//byClaude [2026-11-01 Sun]
+| Action                        | Key                     | Ex command       |
+|-------------------------------+-------------------------+------------------|
+| Split below / right           | =SPC w s= / =SPC w v=   | =:sp= / =:vs=    |
+| New empty window              | =SPC w n=               | =:new=           |
+| Close / close others          | =SPC w q= / =SPC w C-o= | =:q= / =:only=   |
+
+** Moving between windows
+//byClaude [2026-11-01 Sun]
+| Action                        | Key                       |
+|-------------------------------+---------------------------|
+| Left / down / up / right      | =SPC w h/j/k/l=           |
+| Next / previous used          | =SPC w w= / =SPC w p=     |
+
+** Resizing
+//byClaude [2026-11-01 Sun]
+| Action                        | Key                       |
+|-------------------------------+---------------------------|
+| Equal sizes                   | ~SPC w =~                 |
+| Taller / shorter              | =SPC w += / =SPC w -=     |
+| Wider / narrower              | =SPC w >= / =SPC w <=     |
+| Maximize (toggle)             | =SPC w m m=               |
+| Enlarge this window           | =SPC w o=                 |
+
+** Rearranging
+//byClaude [2026-11-01 Sun]
+| Action                              | Key                       |
+|-------------------------------------+---------------------------|
+| Move window to far left/bottom/top/right | =SPC w H/J/K/L=      |
+| Swap with the next window           | =SPC w x=                 |
+| Rotate windows                      | =SPC w r=                 |
+
+** Buffers
+//byClaude [2026-11-01 Sun]
+Like nvim: a window shows a buffer, and closing a window doesn't kill the buffer.
+
+| Action                          | Key                          |
+|---------------------------------+------------------------------|
+| Switch buffer (this workspace)  | =SPC ,= or =SPC b b=         |
+| Switch buffer (all)             | =SPC <= or =SPC b B=         |
+| Last buffer                     | =SPC `=                      |
+| Next / previous buffer          | =] b= / =[ b=                |
+| Kill buffer                     | =SPC b k=                    |
+
+** Workspaces (Doom's tabs)
+//byClaude [2026-11-01 Sun]
+Each workspace has its own window layout and buffer list. =SPC TAB= shows them all.
+
+| Action                        | Key                          |
+|-------------------------------+------------------------------|
+| Show workspaces               | =SPC TAB TAB=                |
+| New / delete                  | =SPC TAB n= / =SPC TAB d=    |
+| Next / previous               | =SPC TAB ]= / =SPC TAB [=    |
+| Go to workspace N             | =SPC TAB 1...9=              |
+| Rename                        | =SPC TAB r=                  |
+| Save / load                   | =SPC TAB s= / =SPC TAB l=    |
+
+** Popups
+//byClaude [2026-11-01 Sun]
+Help, messages, compile output and eshell open in popups at the bottom.
+
+| Action                        | Key                          |
+|-------------------------------+------------------------------|
+| Close popup                   | =Esc= or =q= (in the popup)  |
+| Toggle last popup             | =SPC ~= or =C-`=             |
+| Eshell popup / eshell here    | =SPC o e= / =SPC o E=        |
+| File browser (dired) here     | =SPC o -=                    |
+
+** Frames (separate OS windows)
+//byClaude [2026-11-01 Sun]
+| Action                        | Key                          |
+|-------------------------------+------------------------------|
+| New frame / close frame       | =C-x 5 2= / =C-x 5 0=        |
+| Other frame                   | =C-x 5 o=                    |
+
+* VS Code
+//byClaude [2026-11-03 Tue]
+VS Code 1.143 with default keys, plus vscode-neovim (so the Neovim =C-w= keys
+work in normal mode) and the Claude Code extension in the panel.
+
+** Survival
+//byClaude [2026-11-03 Tue]
+If you only remember one key: =Ctrl+Shift+P= (or =F1=) runs any command by
+name, and shows its key if it has one.
+
+| Stuck?                                | Key                                   |
+|---------------------------------------+---------------------------------------|
+| Find any command                      | =Ctrl+Shift+P= or =F1=                |
+| Open a file by name                   | =Ctrl+P=                              |
+| Back to normal mode (vscode-neovim)   | =Esc=                                 |
+| Side bar gone / in the way            | =Ctrl+B=                              |
+| Panel (terminal, problems) gone / in the way | =Ctrl+J=                       |
+| Too many splits: keep only one group  | =C-w o= (joins all groups)            |
+| Closed a tab by mistake               | =Ctrl+Shift+T=                        |
+| Lost in Zen mode / full screen        | =Esc Esc= / =F11=                     |
+| Text too big / small                  | palette: "View: Reset Zoom"           |
+| Search all keys                       | =Ctrl+K Ctrl+S=                       |
+| Settings (UI / JSON)                  | =Ctrl+,= / palette: "Open User Settings (JSON)" |
+
+With vscode-neovim, =Ctrl+W= in an editor is nvim's =C-w= prefix, not "close
+tab". Close with =C-w q= or =Ctrl+F4=.
+
+** Splits (editor groups)
+//byClaude [2026-11-03 Tue]
+VS Code calls a split an "editor group". Each group has its own tabs.
+
+| Action                        | Key                        | vscode-neovim      |
+|-------------------------------+----------------------------+--------------------|
+| Split right / below           | =Ctrl+\= / =Ctrl+K Ctrl+\= | =C-w v= / =C-w s=  |
+| Close tab                     | =Ctrl+F4=                  | =C-w q=            |
+| Join all groups into one      | palette: "Join All Editor Groups" | =C-w o=     |
+| Flip layout (columns / rows)  | =Shift+Alt+0=              |                    |
+
+** Moving between groups
+//byClaude [2026-11-03 Tue]
+| Action                        | Key                        | vscode-neovim      |
+|-------------------------------+----------------------------+--------------------|
+| Left / down / up / right      | =Ctrl+K Ctrl+Arrow=        | =C-w h/j/k/l=      |
+| Go to group N                 | =Ctrl+1...8=               |                    |
+| Next / previous group         |                            | =C-w w= / =C-w p=  |
+
+** Resizing
+//byClaude [2026-11-03 Tue]
+| Action                        | Key                        | vscode-neovim      |
+|-------------------------------+----------------------------+--------------------|
+| Equal sizes                   |                            | ~C-w =~            |
+| Maximize / restore this group | =Ctrl+K Ctrl+M=            | =C-w _=            |
+| Wider / narrower              |                            | =C-w >= / =C-w <=  |
+| Taller / shorter              |                            | =C-w += / =C-w -=  |
+
+** Rearranging
+//byClaude [2026-11-03 Tue]
+| Action                              | Key                          | vscode-neovim        |
+|-------------------------------------+------------------------------+----------------------|
+| Move tab to next / previous group   | =Ctrl+Alt+Right= / =Ctrl+Alt+Left= | =C-w C-l= / =C-w C-h= |
+| Move whole group left / right       | =Ctrl+K Left= / =Ctrl+K Right= | =C-w H= / =C-w L=  |
+
+** Tabs
+//byClaude [2026-11-03 Tue]
+A tab with an /italic/ title is a preview: the next file you single-click
+replaces it. Double-click it, or start editing, to keep it.
+
+| Action                        | Key                             |
+|-------------------------------+---------------------------------|
+| Next / previous tab           | =Ctrl+PgDn= / =Ctrl+PgUp=, or =gt= / =gT= |
+| Recent tabs                   | hold =Ctrl=, tap =Tab=          |
+| Go to tab N in this group     | =Alt+1...9=                     |
+| Keep a preview tab            | =Ctrl+K Enter=                  |
+| Close tab / all in this group | =Ctrl+F4= / =Ctrl+K W=          |
+| Reopen closed tab             | =Ctrl+Shift+T=                  |
+
+** Side bar and panel
+//byClaude [2026-11-03 Tue]
+| Action                                 | Key                           |
+|----------------------------------------+-------------------------------|
+| Explorer / search / git / debug / extensions | =Ctrl+Shift+E/F/G/D/X=  |
+| Toggle side bar                        | =Ctrl+B=                      |
+| Focus side bar / back to editor        | =Ctrl+0= / =Ctrl+1=           |
+| Toggle panel                           | =Ctrl+J=                      |
+| Problems / output                      | =Ctrl+Shift+M= / =Ctrl+Shift+U= |
+| Maximize panel                         | palette: "Toggle Maximized Panel" |
+| Zen mode                               | =Ctrl+K Z=                    |
+
+** Terminal
+//byClaude [2026-11-03 Tue]
+| Action                        | Key                             |
+|-------------------------------+---------------------------------|
+| Toggle terminal               | =Ctrl+`=                        |
+| New terminal                  | =Ctrl+Shift+`=                  |
+| Split terminal                | =Ctrl+Shift+5=                  |
+| Focus left / right split      | =Alt+Left= / =Alt+Right=        |
+| Back to the editor            | =Ctrl+1=                        |
+
+** Claude Code extension
+//byClaude [2026-11-03 Tue]
+| Action                              | Key                             |
+|-------------------------------------+---------------------------------|
+| Jump to Claude / back to editor     | =Ctrl+Esc=                      |
+| Mention this file / selection       | =Alt+K= (in the editor)         |
+| Open Claude in an editor tab        | palette: "Claude Code" (=Ctrl+Shift+Esc= opens Task Manager on Windows) |
+
+** Windows (separate OS windows)
+//byClaude [2026-11-03 Tue]
+| Action                        | Key                             |
+|-------------------------------+---------------------------------|
+| New window / close window     | =Ctrl+Shift+N= / =Ctrl+Shift+W= |
+| Open recent folder            | =Ctrl+R=                        |
+
+* Related
+- [[file:terminal-workflow.org][Window management: Windows Terminal + Neovim + Claude Code CLI]]
+- [[file:nvim-pickers.org][Neovim pickers: mini.pick and Telescope]]
+- [[file:bookmarks.org][Bookmarks: PowerShell vs nvim/Emacs]] (the =j= function)
