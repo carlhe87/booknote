@@ -134,7 +134,7 @@ pops up every window command. =SPC h k= searches all keymaps.
 |-------------------------------------+-------------------------------------|
 | See all window keys                 | =C-w=, then wait (which-key)        |
 | Back to normal mode                 | =Esc=                               |
-| Out of a terminal window            | =C-\ C-n= (then =i= to go back in)  |
+| Out of a terminal window            | =Esc Esc= (my config) or =C-\ C-n=, then =i= to go back in |
 | Too many splits: keep only this one | =C-w o= (=:only=)                   |
 | Splits squashed / uneven            | ~C-w =~                             |
 | Close this window                   | =C-w q= (=:q=)                      |
@@ -150,7 +150,11 @@ pops up every window command. =SPC h k= searches all keymaps.
 | Split below / right           | =C-w s= / =C-w v=   | =:sp= / =:vs=        |
 | Split and open a file         |                     | =:sp file= / =:vs file= |
 | New empty window              | =C-w n=             | =:new= / =:vnew=     |
+| Split, open file under cursor | =C-w f=             |                      |
+| Split, open previous file     | =C-w ^=             | =:sp #=              |
 | Close / close others          | =C-w q= / =C-w o=   | =:q= / =:only=       |
+| Close, but never quit nvim    | =C-w c=             | =:close=             |
+=C-w q= on the last window quits nvim; =C-w c= refuses instead.
 
 ** Moving between windows
 //byClaude [2026-11-01 Sun]
@@ -158,6 +162,8 @@ pops up every window command. =SPC h k= searches all keymaps.
 |-------------------------------+---------------------------|
 | Left / down / up / right      | =C-w h/j/k/l=             |
 | Next / previous used          | =C-w w= / =C-w p=         |
+| Top-left / bottom-right       | =C-w t= / =C-w b=         |
+| Window N (counted from 1)     | =N C-w w=                 |
 
 ** Resizing
 //byClaude [2026-11-01 Sun]
@@ -201,12 +207,16 @@ layout of windows. Closing a window doesn't close the file.
 | Telescope   | =C-v=          | =C-x=            |
 
 ** Terminal inside nvim
-//byClaude [2026-11-01 Sun]
-| Action                        | Key / command               |
-|-------------------------------+-----------------------------|
-| Terminal in a split           | =:vsplit term://pwsh=       |
-| Leave terminal mode           | =C-\ C-n=                   |
-| Type in the terminal again    | =i=                         |
+//byClaude [2026-11-24 Tue]
+| Action                          | Key / command                          |
+|---------------------------------+----------------------------------------|
+| PowerShell below / to the right | =SPC t h= / =SPC t v= (my config)      |
+| Same, without my keys           | =:sp= or =:vs=, then =:term powershell= |
+| Leave terminal mode             | =Esc Esc= (my config) or =C-\ C-n=     |
+| Type in the terminal again      | =i= or =a=                             |
+| Close the terminal              | =exit=, then =:q= (=:q!= while it runs) |
+One =Esc= still reaches the shell (clears the PowerShell line), so leaving
+takes two. Window keys (=C-w h= etc.) work once you've left terminal mode.
 For claude, a WT pane is better: see [[file:terminal-workflow.org::*Best practice: nvim and claude side by side in WT panes][nvim and claude side by side]].
 
 * Doom Emacs windows
