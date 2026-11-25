@@ -42,3 +42,30 @@ nvim --remote-ui --server \\.\pipe\nvim-main
 - Jobs in =:terminal= buffers keep running in the server.
 - Stop the server: =:qa= from an attached UI.
 - Newer versions may have a built-in =:detach=; check =:help detach=.
+
+* Mirror a folder with robocopy
+=robocopy= ships with Windows and copies only files that changed. Example:
+=nvim-config/publish.ps1= copies a config repo into this one:
+
+#+begin_src powershell
+Robocopy.exe "$HOME\proj\nvim-config" `
+    "$HOME\proj\booknote\nvim-config" `
+    /MIR `
+    /XF publish.ps1 CLAUDE.md README.md .gitignore `
+    /XD .git
+#+end_src
+
+| Part         | Meaning                                                    |
+|--------------+------------------------------------------------------------|
+| source, dest | folders, not files; dest is created if missing             |
+| =/MIR=       | mirror: copy subfolders and *delete* dest files not in source |
+| =/XF ...=    | exclude these files (names or wildcards like =*.log=)      |
+| =/XD ...=    | exclude these folders (=.git= keeps dest's own repo intact) |
+| =/L=         | dry run: list what would happen, change nothing            |
+
+- Try a new command with =/L= first: =/MIR= deletes in the destination, and
+  excluded files and folders there are left alone.
+- Exit codes 0-7 mean success (1 = files copied); 8 or higher is an error.
+  So check =$LASTEXITCODE -ge 8=, not =-ne 0=.
+- A trailing backslash on a quoted path (="C:\dir\"=) breaks the argument;
+  leave it off.
