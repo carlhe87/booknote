@@ -1,0 +1,44 @@
+#+title: Tips
+#+filetags: :terminal:nvim:emacs:
+
+* Session management without tmux
+A session survives closing the terminal when a background /server/ owns the
+processes and the window is only a view onto it. Windows Terminal can't do
+this: closing a tab kills what runs in it, and "restore previous session" only
+brings back layout and old text. Emacs and Neovim can, on Windows too.
+
+Common to both:
+- Start the server detached (hidden), not as a child of a terminal tab you
+  will close, or it dies with the tab.
+- Reboot or logout ends it, same as tmux.
+- Not the same as =:mksession= / =desktop-save-mode=: those save which files
+  and windows were open, not running processes.
+
+** TODO Emacs: daemon + emacsclient
+| Step                          | Command                                  |
+|-------------------------------+------------------------------------------|
+| Start the server              | =emacs --daemon= (or =M-x server-start=) |
+| Open a GUI frame              | =emacsclient -c=                         |
+| Open in the terminal          | =emacsclient -t=                         |
+| Detach                        | close the frame (=C-x 5 0=)              |
+| Stop the server               | =M-x kill-emacs=                         |
+
+- Processes in buffers keep running after the frame closes: =M-x shell=,
+  =eshell=, =compile=, =async-shell-command=. Reattach and switch to the
+  buffer.
+- Doom: =SPC q d= restarts the server.
+
+** TODO Neovim: headless server + remote UI
+Needs Neovim 0.9 or later.
+
+#+begin_src powershell
+# start a hidden background server
+Start-Process nvim -ArgumentList '--headless','--listen','\\.\pipe\nvim-main' -WindowStyle Hidden
+
+# attach a UI; close the terminal any time and attach again later
+nvim --remote-ui --server \\.\pipe\nvim-main
+#+end_src
+
+- Jobs in =:terminal= buffers keep running in the server.
+- Stop the server: =:qa= from an attached UI.
+- Newer versions may have a built-in =:detach=; check =:help detach=.
