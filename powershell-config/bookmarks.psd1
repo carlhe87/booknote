@@ -1,13 +1,15 @@
-# Shared bookmarks for the `j` function (see Microsoft.PowerShell_profile.ps1).
+# Shared bookmarks for the `j` function (see Modules\HaseTools\HaseTools.psm1).
 # Same on every machine and tracked in git: change them in the dev repo
 # (~/proj/powershell-config), not in the profile folder.
 # For this machine's own bookmarks, use bookmarks-local.psd1 (`j marks`).
 #
 # Usage:
 #   j           list all bookmarks
-#   j <name>    folder: cd there | file: cd to its folder and open it in nvim
+#   j <name>    folder: cd there | file: cd to its folder and open it
+#               (text in nvim; docx, xlsx, pdf, images, ... in the default app)
 #   j marks     edit this machine's bookmarks-local.psd1
 #   popd        go back to where you were
+#   jp <name>   output the full path, to use in other commands: Copy-Item (jp <name>) D:\
 #
 # Format: name = 'path'. Names are tab-completed.
 # Use %VAR% for environment variables so paths work on every machine.
