@@ -34,29 +34,25 @@ function emacs-own     { runemacs "--init-directory=$($EmacsConfigDir -replace '
 function emacs-own-dev { runemacs "--init-directory=$($EmacsConfigDevDir -replace '\\', '/')" @args }
 
 # --- Bookmarks -------------------------------------------------------------
-# Jump to a folder or open a file by name. Bookmarks come from two files in the repo root:
-#   bookmarks.psd1        shared by all machines (tracked in git)
-#   bookmarks-local.psd1  this machine only (git-ignored); wins on duplicate names.
-#                         Created from bookmarks-local-template.psd1 on first use.
+# Jump to a folder or open a file by name. Bookmarks are per machine, in bookmarks.psd1
+# in the repo root (git-ignored), created from bookmarks-template.psd1 on first use.
 #   j <name>  -> folder: cd there | file: cd to its folder (so nvim's :e / pickers are
 #                relative to it) and open it: listed text types ($TextExtensions: md,
 #                org, txt, ...) in nvim, all others in the system's default app.
 #                Prints the full path.
 #                Run `popd` to return.
 #   j         -> list all bookmarks sorted by path, with type (folder / file / missing)
-#                and the file each comes from (shared / local)
-#   j marks   -> edit this machine's bookmarks-local.psd1
+#   j marks   -> edit bookmarks.psd1 (a bookmark from the template)
 #   jp <name> -> output the bookmark's full path, nothing else, so it composes:
 #                Copy-Item (jp report) D:\   |   jp report | Set-Clipboard
 #   jp        -> output all bookmarks as objects (Name, Path), e.g. jp | Where-Object Path -like *.org
 #   $jLastPath   full path of the last folder or file `j <name>` went to
-# The files are re-read on every call, so edits take effect without reloading the profile.
-$LocalBookmarkTemplate = Join-Path $RepoRoot 'bookmarks-local-template.psd1'
-# Layers in load order; a later layer overrides an earlier one on duplicate names.
-$BookmarkLayers = [ordered]@{
-    shared = Join-Path $RepoRoot 'bookmarks.psd1'
-    local  = Join-Path $RepoRoot 'bookmarks-local.psd1'
-}
+# The file is re-read on every call, so edits take effect without reloading the profile.
+$BookmarkFile     = Join-Path $RepoRoot 'bookmarks.psd1'
+$BookmarkTemplate = Join-Path $RepoRoot 'bookmarks-template.psd1'
+# Before 2026-11-25 this machine's bookmarks were in bookmarks-local.psd1, next to a
+# shared bookmarks.psd1 (since removed); Get-Bookmarks renames the old file once.
+$OldBookmarkFile  = Join-Path $RepoRoot 'bookmarks-local.psd1'
 
 # Files `j` opens in nvim, by extension (case-insensitive); every other file opens in
 # the system's default app. '' = no extension (README, Makefile, LICENSE).
@@ -74,21 +70,14 @@ $TextExtensions = @(
     '.py', '.js', '.ts', '.html', '.css'
 )
 
-# Returns name -> @{ Path; Source }, merged from all layers.
+# Returns name -> stored path (%VAR% not yet expanded).
 function Get-Bookmarks {
-    if (-not (Test-Path $BookmarkLayers.local) -and (Test-Path $LocalBookmarkTemplate)) {
-        Copy-Item $LocalBookmarkTemplate $BookmarkLayers.local
+    if (-not (Test-Path $BookmarkFile)) {
+        if (Test-Path $OldBookmarkFile) { Move-Item $OldBookmarkFile $BookmarkFile }
+        elseif (Test-Path $BookmarkTemplate) { Copy-Item $BookmarkTemplate $BookmarkFile }
+        else { return @{} }
     }
-    $marks = @{}
-    foreach ($layer in $BookmarkLayers.GetEnumerator()) {
-        if (-not (Test-Path $layer.Value)) { continue }
-        $data = Import-PowerShellDataFile $layer.Value
-        foreach ($key in $data.Keys) {
-            $source = if ($marks.ContainsKey($key)) { "$($layer.Name) (overrides $($marks[$key].Source))" } else { $layer.Name }
-            $marks[$key] = @{ Path = $data[$key]; Source = $source }
-        }
-    }
-    $marks
+    Import-PowerShellDataFile $BookmarkFile
 }
 
 function j {
@@ -100,17 +89,17 @@ function j {
     if (-not $Name) {
         # Sorted by expanded path, so bookmarks in the same area are listed together
         $marks.GetEnumerator() | ForEach-Object {
-            $full = [Environment]::ExpandEnvironmentVariables($_.Value.Path).TrimEnd('\')
+            $full = [Environment]::ExpandEnvironmentVariables($_.Value).TrimEnd('\')
             $type = if (Test-Path $full -PathType Container) { 'folder' }
                     elseif (Test-Path $full -PathType Leaf)  { 'file' }
                     else                                     { 'missing' }
-            [pscustomobject]@{ Name = $_.Name; Type = $type; Source = $_.Value.Source; Path = $_.Value.Path; Full = $full }
-        } | Sort-Object Full, Name | Format-Table Name, Type, Source, Path -AutoSize
+            [pscustomobject]@{ Name = $_.Name; Type = $type; Path = $_.Value; Full = $full }
+        } | Sort-Object Full, Name | Format-Table Name, Type, Path -AutoSize
         return
     }
     if (-not $marks.ContainsKey($Name)) { Write-Warning "No bookmark '$Name'"; return }
 
-    $path = Resolve-BookmarkPath $marks[$Name].Path
+    $path = Resolve-BookmarkPath $marks[$Name]
     if (Test-Path $path) {
         # Full path of the last folder or file j went to, for later commands,
         # e.g. `Copy-Item $jLastPath D:\backup` or `Get-Item $jLastPath`.
@@ -144,12 +133,12 @@ function jp {
     $marks = Get-Bookmarks
     if (-not $Name) {
         $marks.GetEnumerator() | Sort-Object Name | ForEach-Object {
-            [pscustomobject]@{ Name = $_.Name; Path = Resolve-BookmarkPath $_.Value.Path }
+            [pscustomobject]@{ Name = $_.Name; Path = Resolve-BookmarkPath $_.Value }
         }
         return
     }
     if (-not $marks.ContainsKey($Name)) { Write-Error "No bookmark '$Name'"; return }
-    Resolve-BookmarkPath $marks[$Name].Path
+    Resolve-BookmarkPath $marks[$Name]
 }
 
 # Tab completion reads names from all bookmark files, so new entries need no code change
