@@ -35,24 +35,19 @@ function emacs-own-dev { runemacs "--init-directory=$($EmacsConfigDevDir -replac
 
 # --- Bookmarks -------------------------------------------------------------
 # Jump to a folder or open a file by name. Bookmarks are per machine, in bookmarks.psd1
-# in the repo root (git-ignored), created from bookmarks-template.psd1 on first use.
+# in the repo root (git-ignored, written by hand: @{ name = 'path'; ... }).
 #   j <name>  -> folder: cd there | file: cd to its folder (so nvim's :e / pickers are
 #                relative to it) and open it: listed text types ($TextExtensions: md,
 #                org, txt, ...) in nvim, all others in the system's default app.
 #                Prints the full path.
 #                Run `popd` to return.
 #   j         -> list all bookmarks sorted by path, with type (folder / file / missing)
-#   j marks   -> edit bookmarks.psd1 (a bookmark from the template)
 #   jp <name> -> output the bookmark's full path, nothing else, so it composes:
 #                Copy-Item (jp report) D:\   |   jp report | Set-Clipboard
 #   jp        -> output all bookmarks as objects (Name, Path), e.g. jp | Where-Object Path -like *.org
 #   $jLastPath   full path of the last folder or file `j <name>` went to
 # The file is re-read on every call, so edits take effect without reloading the profile.
-$BookmarkFile     = Join-Path $RepoRoot 'bookmarks.psd1'
-$BookmarkTemplate = Join-Path $RepoRoot 'bookmarks-template.psd1'
-# Before 2026-11-25 this machine's bookmarks were in bookmarks-local.psd1, next to a
-# shared bookmarks.psd1 (since removed); Get-Bookmarks renames the old file once.
-$OldBookmarkFile  = Join-Path $RepoRoot 'bookmarks-local.psd1'
+$BookmarkFile = Join-Path $RepoRoot 'bookmarks.psd1'
 
 # Files `j` opens in nvim, by extension (case-insensitive); every other file opens in
 # the system's default app. '' = no extension (README, Makefile, LICENSE).
@@ -72,11 +67,7 @@ $TextExtensions = @(
 
 # Returns name -> stored path (%VAR% not yet expanded).
 function Get-Bookmarks {
-    if (-not (Test-Path $BookmarkFile)) {
-        if (Test-Path $OldBookmarkFile) { Move-Item $OldBookmarkFile $BookmarkFile }
-        elseif (Test-Path $BookmarkTemplate) { Copy-Item $BookmarkTemplate $BookmarkFile }
-        else { return @{} }
-    }
+    if (-not (Test-Path $BookmarkFile)) { Write-Warning "No bookmarks file: $BookmarkFile"; return @{} }
     Import-PowerShellDataFile $BookmarkFile
 }
 
@@ -141,9 +132,10 @@ function jp {
     Resolve-BookmarkPath $marks[$Name]
 }
 
-# Tab completion reads names from all bookmark files, so new entries need no code change
+# Tab completion reads names from bookmarks.psd1, so new entries need no code change.
+# 3>$null: no missing-file warning in the middle of the command line.
 Register-ArgumentCompleter -CommandName j, jp -ParameterName Name -ScriptBlock {
     param($cmd, $param, $word)
-    (Get-Bookmarks).Keys | Where-Object { $_ -like "$word*" } | Sort-Object |
+    (Get-Bookmarks 3>$null).Keys | Where-Object { $_ -like "$word*" } | Sort-Object |
         ForEach-Object { [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_) }
 }
