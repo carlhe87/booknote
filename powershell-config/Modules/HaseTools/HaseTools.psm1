@@ -39,8 +39,9 @@ function emacs-own-dev { runemacs "--init-directory=$($EmacsConfigDevDir -replac
 #   bookmarks-local.psd1  this machine only (git-ignored); wins on duplicate names.
 #                         Created from bookmarks-local-template.psd1 on first use.
 #   j <name>  -> folder: cd there | file: cd to its folder (so nvim's :e / pickers are
-#                relative to it) and open it: text in nvim, binary (docx, xlsx, pdf,
-#                images, ...) in the system's default app. Prints the full path.
+#                relative to it) and open it: listed text types ($TextExtensions: md,
+#                org, txt, ...) in nvim, all others in the system's default app.
+#                Prints the full path.
 #                Run `popd` to return.
 #   j         -> list all bookmarks sorted by path, with type (folder / file / missing)
 #                and the file each comes from (shared / local)
@@ -57,23 +58,21 @@ $BookmarkLayers = [ordered]@{
     local  = Join-Path $RepoRoot 'bookmarks-local.psd1'
 }
 
-# Files `j` opens in the default app instead of nvim. Other extensions are checked by
-# content (Test-BinaryFile); these are listed because they can pass as text (.rtf) or
-# need not have a NUL byte near the start (.pdf).
-$DefaultAppExtensions = '.pdf', '.rtf', '.doc', '.docx', '.xls', '.xlsx', '.ppt', '.pptx',
-                        '.odt', '.ods', '.odp'
-
-# True if the file looks binary: a NUL byte in its first 8000 bytes (git's test).
-# UTF-16 text has NULs too, so a UTF-16 byte order mark counts as text.
-function Test-BinaryFile([string]$Path) {
-    $stream = [IO.File]::OpenRead($Path)
-    try {
-        $buf = New-Object byte[] 8000
-        $n = $stream.Read($buf, 0, $buf.Length)
-    } finally { $stream.Dispose() }
-    if ($n -ge 2 -and (($buf[0] -eq 0xFF -and $buf[1] -eq 0xFE) -or ($buf[0] -eq 0xFE -and $buf[1] -eq 0xFF))) { return $false }
-    [Array]::IndexOf($buf, [byte]0, 0, $n) -ge 0
-}
+# Files `j` opens in nvim, by extension (case-insensitive); every other file opens in
+# the system's default app. '' = no extension (README, Makefile, LICENSE).
+# .bat/.cmd are here so `j` edits them instead of running them. .csv is left out so
+# it opens in Excel. Add an extension when a text file opens in the wrong app.
+$TextExtensions = @(
+    ''
+    # notes and docs
+    '.md', '.org', '.txt', '.log', '.rst', '.tex', '.bib'
+    # config
+    '.json', '.jsonc', '.yaml', '.yml', '.toml', '.ini', '.cfg', '.conf', '.xml'
+    '.gitignore', '.gitattributes', '.editorconfig'
+    # code and scripts
+    '.ps1', '.psm1', '.psd1', '.bat', '.cmd', '.sh', '.lua', '.vim', '.el'
+    '.py', '.js', '.ts', '.html', '.css'
+)
 
 # Returns name -> @{ Path; Source }, merged from all layers.
 function Get-Bookmarks {
@@ -123,10 +122,10 @@ function j {
     if     (Test-Path $path -PathType Container) { $null = $caller.PushCurrentLocation(''); Set-Location $path }
     elseif (Test-Path $path -PathType Leaf) {
         $null = $caller.PushCurrentLocation(''); Set-Location (Split-Path $path)
-        if ($DefaultAppExtensions -contains [IO.Path]::GetExtension($path) -or (Test-BinaryFile $path)) {
-            Invoke-Item $path   # default app, like a double-click in Explorer
-        } else {
+        if ($TextExtensions -contains [IO.Path]::GetExtension($path)) {
             nvim $path
+        } else {
+            Invoke-Item $path   # default app, like a double-click in Explorer
         }
     }
     else   { Write-Warning "Path not found: $path" }

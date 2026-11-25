@@ -6,7 +6,7 @@
 # Usage:
 #   j           list all bookmarks
 #   j <name>    folder: cd there | file: cd to its folder and open it
-#               (text in nvim; docx, xlsx, pdf, images, ... in the default app)
+#               (md, org, txt and other listed text types in nvim; the rest in the default app)
 #   j marks     edit this machine's bookmarks-local.psd1
 #   popd        go back to where you were
 #   jp <name>   output the full path, to use in other commands: Copy-Item (jp <name>) D:\

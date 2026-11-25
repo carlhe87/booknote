@@ -13,7 +13,7 @@
     # desktop = '%USERPROFILE%\Desktop'
 
     # Files: `j <name>` changes to the file's folder and opens the file
-    # (text in nvim; docx, xlsx, pdf, images, ... in the default app)
+    # (md, org, txt and other listed text types in nvim; the rest in the default app)
     # todo    = '%USERPROFILE%\Documents\todo.org'
 
     # Override a shared bookmark, e.g. a different Downloads folder
