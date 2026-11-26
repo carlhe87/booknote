@@ -30,6 +30,7 @@ require('orgmode').setup({
     WAIT = ':foreground #c678dd :weight bold',   -- waiting on others / a process
     KILL = ':foreground #e06c75 :slant italic',  -- cancelled
   },
+  org_hide_emphasis_markers = true,          -- hide * / ~ = markers (needs conceallevel)
   -- agenda view (see ../notes/nvim-orgmode.org)
   org_agenda_span = 'week',
   org_agenda_start_on_weekday = 1,           -- week starts on Monday
@@ -49,6 +50,15 @@ require('orgmode').setup({
       },
     },
   },
+})
+
+-- org: show link descriptions instead of [[target][desc]], hide emphasis markers
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'org',
+  callback = function()
+    vim.opt_local.conceallevel = 2
+    vim.opt_local.concealcursor = 'nc'  -- concealed on the cursor line too, except insert/visual
+  end,
 })
 
 require('mini.files').setup()
