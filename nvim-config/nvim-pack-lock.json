@@ -24,6 +24,10 @@
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
+    "telescope-orgmode.nvim": {
+      "rev": "214fe56e105bb3d0638f33320ed959911a1bfcb1",
+      "src": "https://github.com/nvim-orgmode/telescope-orgmode.nvim"
+    },
     "telescope.nvim": {
       "rev": "40aedd8a68c78a656a10a8d62d80c54af59420fb",
       "src": "https://github.com/nvim-telescope/telescope.nvim"

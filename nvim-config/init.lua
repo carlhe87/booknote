@@ -18,6 +18,7 @@ vim.pack.add({
   'https://github.com/nvim-lua/plenary.nvim',   -- required by neogit
   'https://github.com/NeogitOrg/neogit',
   'https://github.com/nvim-telescope/telescope.nvim',   -- preferred over mini.pick
+  'https://github.com/nvim-orgmode/telescope-orgmode.nvim',  -- org headings/tags in Telescope
 })
 
 require('orgmode').setup({
@@ -72,6 +73,7 @@ require('mini.extra').setup()
 require('which-key').setup()
 require('neogit').setup()
 require('telescope').setup()
+require('telescope').load_extension('orgmode')
 
 -- Keymaps --------------------------------------------------------------------
 local map = vim.keymap.set
@@ -83,6 +85,16 @@ map('n', '<leader>ff', '<cmd>Telescope find_files<cr>', { desc = 'Find file' })
 map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>',  { desc = 'Search text' })
 map('n', '<leader>fb', '<cmd>Telescope buffers<cr>',    { desc = 'Switch buffer' })
 map('n', '<leader>fo', '<cmd>Telescope oldfiles<cr>',   { desc = 'Recent files' })
+-- org headings: match on file, TODO state, tags and title
+map('n', '<leader>fh', function()
+  require('telescope').extensions.orgmode.search_headings({ only_current_file = true })
+end, { desc = 'Org headings (this file)' })
+map('n', '<leader>fH', function()
+  require('telescope').extensions.orgmode.search_headings()
+end, { desc = 'Org headings (all notes)' })
+map('n', '<leader>ft', function()
+  require('telescope').extensions.orgmode.search_tags()
+end, { desc = 'Org tags' })
 -- Doom Emacs shortcuts
 map('n', '<leader>,', '<cmd>Telescope buffers<cr>',     { desc = 'Switch buffer' })
 map('n', '<leader>.', function()
